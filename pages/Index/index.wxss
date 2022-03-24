@@ -12,6 +12,7 @@
   width: 100%;
   height: 100%;
   display: flex;
+  margin-top: 30rpx;
   flex-direction: column;
   justify-content: start;
   align-items: center;
@@ -112,13 +113,12 @@
 /* 新index样式 */
 .counter-warp .personal-section {
   width: 80%;
-  height: 20vh;
+  height: 300rpx;
   position: relative;
   background: #fff;
   border-radius: 8px;
   display: inline-block;
   justify-content: left;
-  top: 180rpx;
   padding: 20px;
 }
 .personal-section .image_radius{
@@ -172,12 +172,10 @@
   color: #006EFF;
   letter-spacing: 0;
 }
-.counter-warp .counsel-section,
-.counter-warp .history-section{
+.counter-warp .counsel-section{
   position: relative;
-  top: 180rpx;
   width: 670rpx;
-  height: 176rpx;
+  height: 200rpx;
   margin-top: 32rpx;
   display: flex;
   align-items: center;
@@ -195,4 +193,24 @@
   height: 100rpx;
   width: 100rpx;
   margin-left: 32px;
+}
+.counter-warp .history-section{
+  position: relative;
+  margin-top: 32rpx;
+  margin-bottom: 48rpx;
+  display: flex;
+  flex-direction: column;
+  width: 670rpx;
+  height: calc(80vh - 500rpx);
+}
+.counsel-history-card{
+  position: relative;
+  width: 670rpx;
+  height: 200rpx;
+  margin-top: 32rpx;
+  display: flex;
+  align-items: center;
+  background-color: #FFFFFF;
+  border-radius: 8rpx;
+  justify-content: space-between;
 }

@@ -1,5 +1,4 @@
 <view class="container">
-  <image class="background-image" src="../../static/assets/background.svg"/>
   <view class="counter-warp">
     <view class="personal-section">
       <image class="image_radius"  src='{{userInfo.avatar|| "https://sdk-web-1252463788.cos.ap-hongkong.myqcloud.com/component/TUIKit/assets/avatar_21.png"}}'/>
@@ -16,9 +15,12 @@
       <image class="counsel-icon" src="./image/counsel-icon.png"/>
       <text class="start-to-counsel">点击此处，立即在线咨询</text>
     </view>
-    <view class="history-section">
-      
-    </view>
+    <scroll-view class="history-section" scroll-y="true">
+      <view class="counsel-history-card" wx:for="{{counselHistoryList}}" wx:key="index" data-item="{{item}}" bindtap="">
+        <view class="tui-scene-name">{{item.name}}</view>
+        <image class="tui-scene-link" src="../../static/assets/detail.svg" />
+      </view>
+    </scroll-view>
     <!-- <view class="counter-main">
       <view class="header-content">
         <image src="../../static/images/im.png" class="icon" />
@@ -35,5 +37,4 @@
       </view>
     </view> -->
   </view>
-
 </view>
