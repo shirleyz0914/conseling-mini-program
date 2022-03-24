@@ -56,11 +56,10 @@
 }
 .box{
   width: 80%;
-  height: 50vh;
+  height: 40vh;
   position: relative;
   background: #ffffff;
-  border-radius: 4px;
-  border-radius: 4px;
+  border-radius: 8px;
   display: flex;
   flex-direction: column;
   justify-content: left;
@@ -80,16 +79,18 @@
 
 .input{
   flex: 1;
-  display: flex;
+  display: inline-block;
   font-family: PingFangSC-Regular;
   font-size: 14px;
   color: rgba(0,0,0,0.8);
   letter-spacing: 0;
+  padding: 10px 36px;
 }
+
 .login {
   display: flex;
+  flex-direction: column;
   box-sizing: border-box;
-  margin-top: 15px;
   width: 100%;
 }
 .login button{
@@ -107,7 +108,7 @@
   background: rgba(0,110,255,0.30) !important;
 }
 .loginBtn{
-  margin-top: 64px;
+  margin-top: 36px;
   background-color:white;
   border-radius: 24px;
   border-radius: 24px;
@@ -276,15 +277,22 @@
 .list-item {
   display: flex;
   flex-direction: column;
-  font-family: PingFangSC-Medium;
-  font-size: 14px;
+  font-family: PingFangSC;
+  font-size: 16px;
   color: #333333;
-  border-bottom: 1px solid #EEF0F3;
 }
-.list-item .list-item-label {
-  font-weight: 500;
+
+.list-item .list-item-line {
+  display: flex;
+}
+
+.list-item .list-item-line .list-item-label {
+  display: inline-block;
+  width: 64px;
+  font-weight: 400;
   padding: 10px 0;
 }
+
 .list-item .list-item-main {
   padding: 6px 0;
   color: #999999;

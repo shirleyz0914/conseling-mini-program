@@ -1,10 +1,11 @@
 {
   "pages": [
+    "pages/Register/register",
     "pages/Login/login",
-    "pages/TUI-Index/index",
+    "pages/Index/index",
     "pages/TUI-User-Center/mine/mine",
-    "pages/TUI-User-Center/about/about",
     "pages/TUI-User-Center/personal/personal",
+    "pages/TUI-User-Center/about/about",
     "pages/TUI-User-Center/cancel/cancel",
     "pages/TUI-User-Center/webview/webview"
   ],
@@ -17,7 +18,7 @@
   "tabBar": {
     "list": [
       {
-        "pagePath": "pages/TUI-Index/index",
+        "pagePath": "pages/Index/index",
         "text": "首页",
         "iconPath": "./static/images/homepage-normal.png",
         "selectedIconPath": "./static/images/homepage-hover.png"
@@ -54,7 +55,7 @@
     }
   ],
   "preloadRule": {
-    "pages/TUI-Index/index" :{  
+    "pages/Index/index" :{  
       "network": "all",
       "packages": [
         "TUI-CustomerService"

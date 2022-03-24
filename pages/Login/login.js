@@ -31,13 +31,13 @@ Page({
   // Token没过期可以利用Token登陆
   loginWithToken() {
     wx.switchTab({
-      url: '../TUI-Index/index',
+      url: '../Index/index',
     })
   },
   // 回退
   onBack() {
     wx.navigateTo({
-      url: '../TUI-Index/TUI-Index',
+      url: '../Index/Index',
     })
   },
   // 输入手机号
@@ -52,6 +52,12 @@ Page({
     const val = e.detail.value;
     this.setData({
       password: val,
+    })
+  },
+  // 跳转至注册页面
+  goRegister() {
+    wx.navigateTo({
+      url: '../Register/register',
     })
   },
   // 登录
@@ -73,7 +79,7 @@ Page({
       })
     } else {
       wx.switchTab({
-        url: '../TUI-Index/index',
+        url: '../Index/index',
       })
     }
   },

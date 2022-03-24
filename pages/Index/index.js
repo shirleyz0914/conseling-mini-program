@@ -23,7 +23,7 @@ Page({
   onLoad() {
   },
   onShow() {
-    logger.log(`| TUI-Index | onshow | login |userSig:${app.globalData.userInfo.userSig} userID:${app.globalData.userInfo.userID}`);
+    logger.log(`| Index | onshow | login |userSig:${app.globalData.userInfo.userSig} userID:${app.globalData.userInfo.userID}`);
     wx.$TUIKit.login({
       userID: app.globalData.userInfo.userID,
       userSig: app.globalData.userInfo.userSig,

@@ -66,7 +66,7 @@ App({
       icon: 'error',
     })
     wx.navigateTo({
-      url: './pages/TUI-Login/login',
+      url: './pages/Login/login',
     })
   },
 
