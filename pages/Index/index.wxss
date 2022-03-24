@@ -13,7 +13,7 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: start;
   align-items: center;
 }
 .counter-main {
@@ -107,4 +107,92 @@
   text-align: center;
   line-height: 18px;
   padding: 16px;
+}
+
+/* 新index样式 */
+.counter-warp .personal-section {
+  width: 80%;
+  height: 20vh;
+  position: relative;
+  background: #fff;
+  border-radius: 8px;
+  display: inline-block;
+  justify-content: left;
+  top: 180rpx;
+  padding: 20px;
+}
+.personal-section .image_radius{
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  padding: 16px;
+  justify-content: center;
+  vertical-align: top;
+}
+
+.information-section{
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.information-section .welcome-text{
+  padding: 16px 0 0 16px;
+  display: block;
+  font-size: 16px;
+}
+.information-section .phone-nunber-text{
+  padding: 16px;
+  display: block;
+}
+
+.edit-icon {
+  width: 18px;
+  height: 18px;
+  vertical-align: top;
+  margin-top: 16px;
+  float: inline-end;
+}
+
+.personal-section .quit-main{
+  position: relative;
+  margin: 14px 16px;
+  background-color:white;
+  width: calc(100% - 32px);
+  height: 36px;
+  border: 1px solid #006EFF;
+  border-radius: 24px;
+  border-radius: 24px;
+}
+.quit-main-text{
+  display: flex;
+  justify-content: center;
+  font-family: PingFangSC-Regular;
+  font-size: 16px;
+  margin-top: 8px;
+  color: #006EFF;
+  letter-spacing: 0;
+}
+.counter-warp .counsel-section,
+.counter-warp .history-section{
+  position: relative;
+  top: 180rpx;
+  width: 670rpx;
+  height: 176rpx;
+  margin-top: 32rpx;
+  display: flex;
+  align-items: center;
+  background-color: #FFFFFF;
+  border-radius: 8rpx;
+  justify-content: space-between;
+}
+.start-to-counsel {
+  position: relative;
+  font-size: 16px;
+  padding-right: 32px;
+}
+.counsel-icon{
+  position: relative;
+  height: 100rpx;
+  width: 100rpx;
+  margin-left: 32px;
 }
