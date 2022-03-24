@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/Index/index",
     "pages/Login/login",
+    "pages/Index/index",
     "pages/Register/register",
     "pages/TUI-User-Center/mine/mine",
     "pages/TUI-User-Center/personal/personal",

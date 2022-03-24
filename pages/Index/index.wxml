@@ -8,7 +8,7 @@
       </view>
       <image class="edit-icon" src="./image/edit-icon.png"/>
       <view class="quit-main">
-        <view class="quit-main-text" bindtap="quit">登录/登出</view>
+        <view class="quit-main-text" bindtap="quit">退出登录</view>
       </view>
     </view>
     <view class="counsel-section">
