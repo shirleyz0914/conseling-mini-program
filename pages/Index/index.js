@@ -10,10 +10,11 @@ Page({
    * 页面的初始数据
    */
   data: {
-    sceneList: [
-      { name: '在线客服', url: '../../TUI-CustomerService/pages/TUI-Conversation/conversation/conversation', iconUrl: '../../static/assets/online-service.svg' },
-      { name: '实时通话', url: '../../TUI-Calling/pages/TUI-Calling/calling-index/index', iconUrl: '../../static/assets/calling.svg' },
-      { name: '互动直播', url: '', iconUrl: '../../static/assets/interactive-live.svg' },
+    counselHistoryList: [
+      { name: '咨询师1', iconUrl: '../../static/assets/interactive-live.svg', time: 'YYYY/MM/DD HH:MM:SS', period: 'xx小时XX分钟', score: 5 },
+      { name: '咨询师2', iconUrl: '../../static/assets/calling.svg', time: 'YYYY/MM/DD HH:MM:SS', period: 'xx小时XX分钟', score: 4 },
+      { name: '咨询师3', iconUrl: '../../static/assets/interactive-live.svg', time: 'YYYY/MM/DD HH:MM:SS', period: 'xx小时XX分钟', score: 5},
+      { name: '咨询师4', iconUrl: '../../static/assets/interactive-live.svg', time: 'YYYY/MM/DD HH:MM:SS', period: 'xx小时XX分钟', score: 5},
     ],
   },
 

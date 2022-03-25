@@ -1,0 +1,32 @@
+<view class="profile-page">
+  <view class="header-section">
+    <image class="avatar-image" src='{{userInfo.avatar|| "https://sdk-web-1252463788.cos.ap-hongkong.myqcloud.com/component/TUIKit/assets/avatar_21.png"}}' />
+  </view>
+  <view class="information-section">
+    <view class="list-item">
+      <view class="list-item-line">
+        <label class="list-item-label">真 实 姓 名</label>
+        <input class="input" type="text" placeholder="请输入真实姓名" bindinput='bindNameInput' placeholder-style="font-size:14px;color:#BBBBBB;" />
+      </view>
+      <view class="list-item-line">
+        <label class="list-item-label">手 机 号 码</label>
+        <input class="input" type="number" placeholder="请输入手机号" bindinput='bindPhoneInput' placeholder-style="font-size:14px;color:#BBBBBB;" />
+      </view>
+      <view class="list-item-line">
+        <label class="list-item-label">紧急联系人</label>
+        <input class="input" type="text" placeholder="请输入紧急联系人姓名" bindinput='bindContactNameInput' placeholder-style="font-size:14px;color:#BBBBBB;" />
+      </view>
+      <view class="list-item-line">
+        <label class="list-item-label">联系人手机</label>
+        <input class="input" type="number" placeholder="请输入紧急联系人手机号码" bindinput='bindContactInput' placeholder-style="font-size:14px;color:#BBBBBB;" />
+      </view>
+    </view>
+    <view class="reset-password">
+      <label class="reset-password-text">修改登录密码</label>
+      <image class="detail-icon" src="../../static/assets/detail.svg" bindtap="goResetPwd"/>
+    </view>
+    <view class="confirm-change">
+      <button class="confirmBtn" disabled="{{!profileChanged}}" bind:tap='confirmChange'>确认修改</button> 
+    </view>
+  </view>
+</view>

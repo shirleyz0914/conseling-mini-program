@@ -20,7 +20,7 @@
     "checkInvalidKey": true,
     "checkSiteMap": true,
     "uploadWithSourceMap": true,
-    "compileHotReLoad": false,
+    "compileHotReLoad": true,
     "lazyloadPlaceholderEnable": false,
     "useMultiFrameRuntime": true,
     "useApiHook": true,
@@ -30,7 +30,7 @@
       "disablePlugins": [],
       "outputPath": ""
     },
-    "useIsolateContext": true,
+    "useIsolateContext": false,
     "userConfirmedBundleSwitch": false,
     "packNpmManually": false,
     "packNpmRelationList": [],
@@ -43,8 +43,8 @@
   },
   "compileType": "miniprogram",
   "libVersion": "2.23.2",
-  "appid": "wxa5247562fac5f4f9",
-  "projectname": "%E7%A4%BE%E4%BC%9A%E5%BF%83%E7%90%86%E6%9C%8D%E5%8A%A1%E7%83%AD%E7%BA%BF%E5%B9%B3%E5%8F%B0",
+  "appid": "wx878a25bd0b59aa8c",
+  "projectname": "conseling-mini-program",
   "debugOptions": {
     "hidedInDevtools": []
   },

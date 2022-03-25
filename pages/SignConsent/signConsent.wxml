@@ -1,0 +1,52 @@
+<view class="container">
+  <image class="background-image" src="../../static/assets/background.svg"/>
+  <view class="counter-warp">
+    <view class="header-content">
+      <view class="text">
+        <view class="text-header">《知情同意书》</view>
+      </view>
+    </view>
+    <view class="box">
+      <view class="consent-box" selectable="true" scroll-y="true" >    
+        <text class="consent-head" >尊敬的访客：
+        感谢您的信任。在正式开始咨询之前，有些相关事宜需要告知于您，以便咨询更好地开展，请您在仔细阅读并勾选同意后进入咨询。</text>
+        <text class="consent-text" disabled='true'  style="overflow-y:auto;overflow-x:scroll;" selectable="true"> 1.保密性：
+            在一般情况下，咨询师对您所提供的信息保密，包括个案记录、测验资料、信件、录音、录像和其他资料，均属专业信息，在严格保密的情况下进行保存，避免在任何公众场合公开；但以下的情况存在保密例外，并会通知相关的个人及机构：
+            1）触犯相关法律（如，您可能对自己或他人构成危险；您有虐待儿童、老人或需要依靠您生活的人的嫌疑等）
+            2）您的情况比较严重，并涉及到自身的安全（如自杀、自残、严重的抑郁等），我们会在必要时，通知您的亲属或监护人，并同时征求您的意见，以确保您的安全。
+
+         2.访客的责任：
+            来访者在咨询工作中需要做到：
+            1）参加并参与咨询面谈；
+            2）在咨询中尽可能表达和分享自己的想法和感受；
+            3）认真思考自己的表达、咨询师的回应以及二人的互动交流过程。
+
+         3.咨询师的责任：
+            咨询师在咨询工作中需要做到：
+            1）为来访者安排双方合适的咨询日程；
+            2）努力帮助来访者通向对自我、现状的理解、帮助来访者更好地处理当下面临的种种困苦以及生活事件；
+            3）定期参加专业学习和案例讨论会，确保自己胜任与来访者的咨询工作；
+            4）清楚自己的身为咨询师的有限性，在咨询无效、失败的时候及时与来访者讨论结束咨询、转介等事宜。
+
+         4.自由退出：
+            您有权在任何时候终止您的咨询，但建议您在您正式退出咨询之前和您的咨询师讨论您的想法。
+
+         5.危机干预事项：
+            倘若您正在面临较为严重的心理压力，并且有自杀的念头和冲动，则需要和咨询师共同讨论其潜在的风险和应对措施，包括如何获得当地的支持资源以及自我调节的技术方法等等。鉴于远程咨询的有限性，咨询师无法和高自杀风险的来访者工作，倘若出现较为强烈的自杀冲动或自毁行为，咨询师有义务与来访者就转介至合适的援助机构进行讨论。
+        </text>
+      </view>
+
+      <view class="private-protocol-box" bindtap="onAgreePrivateProtocol">
+          <view class="private-protocol-switch" >
+            <image wx:if="{{privateAgree}}" src="../../static/images/selected.png" lazy-load="true"  />
+            <image wx:else src="../../static/images/select.png" lazy-load="true" />
+          </view>
+          <view class="text-box"><text>我已阅读并同意以上内容</text></view>
+      </view>
+      <view class='login'>
+            <button class="loginBtn" disabled="{{!privateAgree}}" bind:tap='login'>进入咨询</button>
+      </view>
+    </view>
+  </view>
+</view>
+

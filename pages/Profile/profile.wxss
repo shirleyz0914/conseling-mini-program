@@ -1,0 +1,108 @@
+.profile-page {
+  width: 100%;
+  height: 100vh;
+  background-color: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+}
+.header-section{
+  position: relative;
+  margin-top: 80rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.avatar-image{
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 16rpx;
+}
+.information-section{
+  position: relative;
+  margin: 80rpx 0;
+}
+.list-item {
+  display: flex;
+  flex-direction: column;
+  font-family: PingFangSC;
+  font-size: 16px;
+  color: #333333;
+}
+.list-item .list-item-line {
+  display: flex;
+  background-color: #fff;
+  margin-bottom: 12rpx;
+  border-bottom: solid 2rpx #f5f5f5;
+  padding: 10rpx 80rpx;
+}
+.list-item .list-item-line .list-item-label {
+  display: inline-block;
+  width: 80px;
+  margin-right: 36rpx;
+  line-height: 42rpx;
+  font-size: 16px;
+  align-self: center;
+  font-family: PingFangSC;
+  color: #000;
+}
+.reset-password{
+  display: flex;
+  background-color: #fff;
+  margin-top: 30rpx;
+  height: 42rpx;
+  padding: 26rpx 80rpx;
+  justify-content: space-between;
+}
+.reset-password .reset-password-text {
+  display: inline-block;
+  width: 300rpx;
+  margin-right: 36rpx;
+  line-height: 42rpx;
+  font-size: 16px;
+  font-family: PingFangSC;
+  text-align: left;
+  align-self: center;
+  /* padding: 10rpx 0; */
+}
+.reset-password .detail-icon{
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  align-self: center;
+}
+.list-item .list-item-line .list-item-main {
+  padding: 6px 0;
+  color: #999999;
+  display: flex;
+  align-items: center;
+}
+.input{
+  padding: 10rpx 0;
+  font-size: 16px;
+  font-family: PingFangSC;
+  color: #666
+}
+.confirm-change{
+  margin: 72rpx 80rpx;
+}
+.confirm-change button{
+  background: rgba(0,110,255,1);
+  border-radius: 30px;
+  font-size: 16px;
+  color: #FFFFFF;
+  letter-spacing: 0;
+  font-weight: 500;
+}
+ .confirmBtn[disabled] {
+  color: #FFFFFF !important;
+  background: rgba(0,110,255,0.30) !important;
+}
+.confirmBtn{
+  background-color:white;
+  border-radius: 24px;
+  width: 100% !important;
+  font-family: PingFangSC-Regular;
+  font-size: 16px;
+  color: #FFFFFF;
+  letter-spacing: 0;
+}

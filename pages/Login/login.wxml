@@ -10,8 +10,8 @@
       <view class="list" >
         <view class="list-item">
           <view class="list-item-line">
-            <label class="list-item-label">手机号</label>
-            <input class="input" type="number" placeholder="请输入手机号" bindinput='bindPhoneInput' placeholder-style="color:#BBBBBB;"/>
+            <label class="list-item-label">账号</label>
+            <input class="input" type="text" placeholder="请输入用户名或手机号" bindinput='bindPhoneInput' placeholder-style="color:#BBBBBB;"/>
           </view>
           <view class="list-item-line">
             <label class="list-item-label">密码</label>
@@ -20,8 +20,8 @@
         </view>
       </view>
       <view class='login'>
-        <button class="loginBtn" bind:tap='goRegister'>注册</button>
         <button class="loginBtn" bind:tap='login'>登录</button>
+        <view class="go-register" bindtap="goRegister">还没有账号？去注册</view>
       </view>
     </view>
   </view>
