@@ -69,30 +69,31 @@
 
 .consent-head {
   width: 100%;
-  font-size: 13px;
+  font-size: 14px;
   justify-content: center;
   color: #000;
 }
 
 .consent-text {
-  width: 90%;
-  font-size: 12px;
+  width: 92%;
+  font-size: 13px;
   justify-content: center;
   color: #000;
   display: block;
   height: 80%;
   align-items: center;
   max-height: 300rpx;
+  background: #efeff4;
   border: 2rpx solid #333333;
   border-radius: 10rpx;
   margin-top: 24px;
-  padding: 12px;
+  padding: 8px;
   }
 
 .login {
   display: flex;
   box-sizing: border-box;
-  margin-top: 2px;
+  margin-top: 20px;
   width: 100%;
 }
 .login button{

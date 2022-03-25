@@ -1,5 +1,7 @@
 {
   "pages": [
+    "pages/ConsultationRecords/consultationRecords",
+    "pages/SignConsent/signConsent",
     "pages/Register/register",
     "pages/Login/login",
     "pages/Index/index",
