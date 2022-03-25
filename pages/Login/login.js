@@ -34,12 +34,12 @@ Page({
       url: '../Index/index',
     })
   },
-  // 回退
-  onBack() {
-    wx.navigateTo({
-      url: '../Index/Index',
-    })
-  },
+  // // 回退
+  // onBack() {
+  //   wx.navigateTo({
+  //     url: '../Index/Index',
+  //   })
+  // },
   // 输入手机号
   bindPhoneInput(e) {
     const val = e.detail.value
@@ -65,10 +65,10 @@ Page({
     const phone = this.data.phone;
     const password = this.data.password;
     const userSig = genTestUserSig(phone).userSig
-    logger.log(`TUI-login | login  | userSig:${userSig} userID:${phone}`)
+    // logger.log(`TUI-login | login  | userSig:${userSig} userID:${phone}`)
     app.globalData.userInfo = {
       userSig,
-      userID,
+      userID: phone,
     }
     setTokenStorage({
       userInfo: app.globalData.userInfo,
@@ -82,24 +82,5 @@ Page({
         url: '../Index/index',
       })
     }
-  },
-  onAgreePrivateProtocol() {
-    this.setData({
-      privateAgree: !this.data.privateAgree,
-    })
-  },
-
-  linkToPrivacyTreaty() {
-    const url = 'https://web.sdk.qcloud.com/document/Tencent-IM-Privacy-Protection-Guidelines.html'
-    wx.navigateTo({
-      url: `../TUI-User-Center/webview/webview?url=${url}&nav=Privacy-Protection`,
-    })
-  },
-
-  linkToUserAgreement() {
-    const url = 'https://web.sdk.qcloud.com/document/Tencent-IM-User-Agreement.html'
-    wx.navigateTo({
-      url: `../TUI-User-Center/webview/webview?url=${url}&nav=User-Agreement`,
-    })
   },
 })
