@@ -1,8 +1,9 @@
 {
   "pages": [
     "pages/Login/login",
-    "pages/Index/index",
     "pages/Register/register",
+    "pages/Index/index",
+    "pages/Profile/profile",
     "pages/TUI-User-Center/mine/mine",
     "pages/TUI-User-Center/personal/personal",
     "pages/TUI-User-Center/about/about",

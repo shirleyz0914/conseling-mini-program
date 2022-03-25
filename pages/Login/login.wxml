@@ -20,8 +20,8 @@
         </view>
       </view>
       <view class='login'>
-        <view class="go-register" bindtap="goRegister">还没有账号？去注册</view>
         <button class="loginBtn" bind:tap='login'>登录</button>
+        <view class="go-register" bindtap="goRegister">还没有账号？去注册</view>
       </view>
     </view>
   </view>
