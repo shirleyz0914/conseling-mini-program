@@ -1,0 +1,30 @@
+.appointment-page {
+  width: 100%;
+  height: 100%;
+}
+.appointment-list-card {
+  margin: 28rpx 28rpx;
+  border: solid 1rpx #666;
+  display: flex;
+  flex-direction: row;
+}
+.counseler-list-left{
+  margin: 48rpx 36rpx;
+  width: 150rpx;
+}
+.counseler-avatar {
+  
+  height: 128rpx;
+  width: 128rpx;
+  border-radius: 64rpx;
+}
+.counseler-list-middle {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin-top: 48rpx;
+}
+.counseler-information-text {
+  font-size: 32rpx;
+  margin-top: 18rpx;
+}

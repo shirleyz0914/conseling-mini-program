@@ -20,4 +20,4 @@
     </view>
   </view>
 </view>
-<tabBar selected="{{1}}" />
+<tabBar selected="{{0}}" />

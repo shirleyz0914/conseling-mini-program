@@ -56,7 +56,7 @@ Page({
       })
     } else {
       wx.switchTab({
-        url: '../TUI-Index/index',
+        url: '../Index/index',
       })
     }
   },
