@@ -1,11 +1,30 @@
-<view class="appointment-page">
-  <view class="appointment-list-card" wx:for="{{counselerList}}" wx:key="index" data-item="{{item}}" bindtap="">
+<view class="appointment-page" wx:for="{{counselerList}}" wx:key="index" data-item="{{item}}">
+  <view class="appointment-list-card" wx:if="{{item.status === 0}}" bindtap="goWaitingList">
     <view class="counseler-list-left">
       <image class="counseler-avatar" src="{{item.avatarUrl}}" />
     </view>
     <view class="counseler-list-middle">
       <view class="counseler-information-text">咨询师：{{item.name}}</view>
       <view class="counseler-information-text">综合评价：{{item.averageScore}} / 5</view>
+    </view>
+    <view class="counseler-list-right">
+      <view class="counseler-list-status-busy">
+        <view class="counseler-list-status-text">忙碌</view>
+      </view>
+    </view>
+  </view>
+  <view class="appointment-list-card" wx:else bindtap="makeAppointment">
+    <view class="counseler-list-left">
+      <image class="counseler-avatar" src="{{item.avatarUrl}}" />
+    </view>
+    <view class="counseler-list-middle">
+      <view class="counseler-information-text">咨询师：{{item.name}}</view>
+      <view class="counseler-information-text">综合评价：{{item.averageScore}} / 5</view>
+    </view>
+    <view class="counseler-list-right">
+      <view class="counseler-list-status-free">
+        <view class="counseler-list-status-text">空闲</view>
+      </view>
     </view>
   </view>
 </view>

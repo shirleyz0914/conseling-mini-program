@@ -51,6 +51,13 @@
           "name": "预约页面",
           "pathName": "pages/Appointment/appointment",
           "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "等待页",
+          "pathName": "pages/WaitList/waitList",
+          "query": "",
           "scene": null,
           "launchMode": "default"
         }
