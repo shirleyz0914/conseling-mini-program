@@ -1,4 +1,4 @@
-// miniprogram/pages/TUI-Index/TUI-create.js
+// miniprogram/pages/Index/TUI-create.js
 import logger from '../../utils/logger';
 
 // eslint-disable-next-line no-undef

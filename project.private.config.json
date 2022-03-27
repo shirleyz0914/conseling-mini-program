@@ -44,6 +44,13 @@
           "name": "首页",
           "pathName": "pages/Index/index",
           "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "预约页面",
+          "pathName": "pages/Appointment/appointment",
+          "query": "",
           "scene": null,
           "launchMode": "default"
         }
