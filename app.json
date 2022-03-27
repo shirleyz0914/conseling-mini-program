@@ -1,10 +1,10 @@
 {
   "pages": [
+    "pages/Index/index",
     "pages/Login/login",
     "pages/Register/register",
     "pages/ConsultationRecords/consultationRecords",
     "pages/SignConsent/signConsent",
-    "pages/Index/index",
     "pages/Profile/profile",
     "pages/TUI-User-Center/mine/mine",
     "pages/TUI-User-Center/personal/personal",

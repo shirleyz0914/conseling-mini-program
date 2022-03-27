@@ -17,13 +17,6 @@ Page({
     statusBarHeight: app.globalData.statusBarHeight,
   },
   onLoad(option) {
-    // this.setData({
-    //   path: option.path,
-    // })
-    // wx.setStorage({
-    //   key: 'path',
-    //   data: option.path,
-    // })
     this.loginWithToken;
   },
   onShow() {
@@ -69,7 +62,6 @@ Page({
           // 接口请求成功
           const userID = this.data.user_name;
           const userSig = genTestUserSig(userID).userSig
-          // logger.log(`TUI-login | login  | userSig:${userSig} userID:${phone}`)
           app.globalData.userInfo = {
             userSig,
             userID: userID,

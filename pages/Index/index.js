@@ -20,6 +20,19 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad() {
+    if (app.globalData.userInfo != undefined){
+      wx.$TUIKit.login({
+        userID: app.globalData.userInfo.userID,
+        userSig: app.globalData.userInfo.userSig,
+      }).then(() => {
+      })
+        .catch(() => {
+      });
+    } else {
+      wx.redirectTo({
+        url: '../Login/login',
+      })
+    }
   },
   onShow() {
     logger.log(`| Index | onshow | login |userSig:${app.globalData.userInfo.userSig} userID:${app.globalData.userInfo.userID}`);
