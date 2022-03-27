@@ -76,7 +76,8 @@ Page({
       });
     } else {
       wx.request({
-        url: 'http://1.15.129.51:3000/users/wx/visitor',
+        // url: 'http://1.15.129.51:3000/users/wx/visitor',
+        url: 'http://127.0.0.1:4523/mock/738059/users/wx/visitor', //mock接口地址
         method: 'POST',
         data: {
           "user_name": userName,
@@ -88,6 +89,11 @@ Page({
         },
         success: (res) => {
           console.log("----注册-----", res);
+          if (res.statusCode === 200) {
+            wx.redirectTo({
+              url: '../Profile/profile',
+            })
+          }
         }
       })
     }

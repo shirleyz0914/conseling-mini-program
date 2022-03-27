@@ -24,6 +24,7 @@ Page({
     //   key: 'path',
     //   data: option.path,
     // })
+    this.loginWithToken;
   },
   onShow() {
   },

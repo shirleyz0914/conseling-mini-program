@@ -27,8 +27,14 @@
         "selectedIconPath": "./static/images/homepage-hover.png"
       },
       {
-        "pagePath": "pages/TUI-User-Center/mine/mine",
-        "text": "我的",
+        "pagePath": "pages/SignConsent/signConsent",
+        "text": "咨询会话",
+        "iconPath": "./static/images/homepage-normal.png",
+        "selectedIconPath": "./static/images/homepage-hover.png"
+      },
+      {
+        "pagePath": "pages/ConsultationRecords/consultationRecords",
+        "text": "咨询记录",
         "iconPath": "./static/images/mine-normal.png",
         "selectedIconPath": "./static/images/mine-hover.png"
       }

@@ -6,5 +6,10 @@ const app = getApp();
 Page({
   data: {
     profileChanged: false
+  },
+  onBack() {
+    wx.navigateTo({
+      url: '../Index/index',
+    })
   }
 });
