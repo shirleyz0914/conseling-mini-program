@@ -100,7 +100,7 @@ Page({
   goHomePage() {
     // wx.navigateTo 不能跳转到 tabbar 页面，使用 wx.switchTab 代替
     wx.switchTab({
-      url: '../../../../pages/TUI-Index/index',
+      url: '../../../../pages/Index/index',
     });
   },
   // 点击空白区域关闭showMore弹窗

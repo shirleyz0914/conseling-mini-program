@@ -1,10 +1,10 @@
 {
   "pages": [
+    "pages/Index/index",
     "pages/Login/login",
     "pages/Register/register",
     "pages/ConsultationRecords/consultationRecords",
     "pages/SignConsent/signConsent",
-    "pages/Index/index",
     "pages/Profile/profile",
     "pages/TUI-User-Center/mine/mine",
     "pages/TUI-User-Center/personal/personal",
@@ -22,15 +22,15 @@
     "list": [
       {
         "pagePath": "pages/Index/index",
-        "text": "首页",
-        "iconPath": "./static/images/homepage-normal.png",
-        "selectedIconPath": "./static/images/homepage-hover.png"
+        "text": "首页"
       },
       {
-        "pagePath": "pages/TUI-User-Center/mine/mine",
-        "text": "我的",
-        "iconPath": "./static/images/mine-normal.png",
-        "selectedIconPath": "./static/images/mine-hover.png"
+        "pagePath": "pages/SignConsent/signConsent",
+        "text": "咨询会话"
+      },
+      {
+        "pagePath": "pages/ConsultationRecords/consultationRecords",
+        "text": "咨询记录"
       }
     ]
   },
