@@ -28,3 +28,23 @@
   font-size: 32rpx;
   margin-top: 18rpx;
 }
+.counseler-list-right{
+  display: flex;
+  flex-direction: column;
+}
+.counseler-list-status-busy {
+  background-color: #fcc3b9;
+  width: 96rpx;
+  height: 48rpx;
+  align-items: center;
+}
+.counseler-list-status-free {
+  background-color: #b8f8d6;
+  width: 96rpx;
+  height: 48rpx;
+}
+.counseler-list-status-text {
+  color: #000;
+  text-align: center;
+  font-size: 28rpx;
+}

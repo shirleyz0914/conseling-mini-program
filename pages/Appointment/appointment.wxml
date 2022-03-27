@@ -7,5 +7,14 @@
       <view class="counseler-information-text">咨询师：{{item.name}}</view>
       <view class="counseler-information-text">综合评价：{{item.averageScore}} / 5</view>
     </view>
+    <view class="counseler-list-right">
+      <!-- 根据咨询师是否空闲加载不同的标签 -->
+      <view class="counseler-list-status-busy" wx:if="{{item.status === 0}}">
+        <view class="counseler-list-status-text">忙碌</view>
+      </view>
+      <view class="counseler-list-status-free" wx:else>
+        <view class="counseler-list-status-text">空闲</view>
+      </view>
+    </view>
   </view>
 </view>
