@@ -22,21 +22,15 @@
     "list": [
       {
         "pagePath": "pages/Index/index",
-        "text": "首页",
-        "iconPath": "./static/images/homepage-normal.png",
-        "selectedIconPath": "./static/images/homepage-hover.png"
+        "text": "首页"
       },
       {
         "pagePath": "pages/SignConsent/signConsent",
-        "text": "咨询会话",
-        "iconPath": "./static/images/homepage-normal.png",
-        "selectedIconPath": "./static/images/homepage-hover.png"
+        "text": "咨询会话"
       },
       {
         "pagePath": "pages/ConsultationRecords/consultationRecords",
-        "text": "咨询记录",
-        "iconPath": "./static/images/mine-normal.png",
-        "selectedIconPath": "./static/images/mine-hover.png"
+        "text": "咨询记录"
       }
     ]
   },
