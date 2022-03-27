@@ -13,5 +13,11 @@ const defaultCounselerList = [
 Page({
   data: {
     counselerList: defaultCounselerList,
+  },
+  makeAppointment() {
+    console.log("----预约-----");
+  },
+  goWaitingList() {
+    console.log("----等待-----");
   }
 });
