@@ -103,7 +103,11 @@ Page({
       privateAgree: !this.data.privateAgree,
     })
   },
-
+  goLogin() {
+    wx.navigateBack({
+      delta: 1,
+    })
+  },
   linkToPrivacyTreaty() {
     const url = 'https://web.sdk.qcloud.com/document/Tencent-IM-Privacy-Protection-Guidelines.html'
     wx.navigateTo({

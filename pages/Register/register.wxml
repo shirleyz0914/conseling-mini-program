@@ -37,6 +37,7 @@
       </view>
       <view class='register'>
             <button class="registerBtn" disabled="{{!privateAgree}}" bind:tap='register'>注册</button>
+            <view class="go-login" bindtap="goLogin">已有账号？去登录</view>
       </view>
     </view>
   </view>
