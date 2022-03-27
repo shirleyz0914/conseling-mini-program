@@ -5,6 +5,7 @@ import { genTestUserSig } from '../../debug/GenerateTestUserSig'
 const app = getApp()
 Page({
   data: {
+    userName: '',
     phone: '',
     password: '',
     confirmedPassword: '',
@@ -18,27 +19,26 @@ Page({
     statusBarHeight: app.globalData.statusBarHeight,
   },
   onLoad(option) {
-    this.setData({
-      path: option.path,
-    })
-    wx.setStorage({
-      key: 'path',
-      data: option.path,
-    })
   },
-
   onShow() {
   },
   // Token没过期可以利用Token登陆
   loginWithToken() {
     wx.switchTab({
-      url: '../TUI-Index/index',
+      url: '../Index/index',
     })
   },
   // 回退
   onBack() {
     wx.navigateTo({
-      url: '../TUI-Index/TUI-Index',
+      url: '../Login/login',
+    })
+  },
+  // 输入用户名
+  bindUserNameInput(e) {
+    const val = e.detail.value;
+    this.setData({
+      userName: val,
     })
   },
   // 输入手机号
@@ -64,8 +64,33 @@ Page({
   },
   // 注册
   register() {
+    const userName = this.data.userName;
     const phone = this.data.phone;
-    logger.log("---注册---");
+    const password = this.data.password;
+    const confirmedPassword = this.data.confirmedPassword;
+    if (password !== confirmedPassword){
+      wx.showModal({
+        title: '提示',
+        content: '密码输入不一致，请重新填写',
+        showCancel: false
+      });
+    } else {
+      wx.request({
+        url: 'http://1.15.129.51:3000/users/wx/visitor',
+        method: 'POST',
+        data: {
+          "user_name": userName,
+          "visitor_phone": phone,
+          "user_password": password,
+          "role": "visitor",
+          "visitor_name": null,
+          "visitor_gender": null
+        },
+        success: (res) => {
+          console.log("----注册-----", res);
+        }
+      })
+    }
   },
   onAgreePrivateProtocol() {
     this.setData({

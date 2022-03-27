@@ -52,7 +52,7 @@
 }
 .box{
   width: 65%;
-  height: 500rpx;
+  height: 400px;
   position: relative;
   background: #ffffff;
   border-radius: 8px;

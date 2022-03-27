@@ -23,6 +23,13 @@
           "name": "选择咨询记录",
           "pathName": "pages/ConsultationRecords/consultationRecords",
           "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "注册页面",
+          "pathName": "pages/Register/register",
+          "query": "",
           "scene": null,
           "launchMode": "default"
         }
