@@ -26,7 +26,7 @@
         "text": "首页"
       },
       {
-        "pagePath": "pages/SignConsent/signConsent",
+        "pagePath": "pages/Appointment/appointment",
         "text": "咨询会话"
       },
       {

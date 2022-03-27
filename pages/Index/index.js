@@ -69,6 +69,9 @@ Page({
     });
   },
   goConseling() {
+    wx.switchTab({
+      url: '../Appointment/appointment',
+    });
   },
   // handleOnPageNavigate(event) {
   //   const tab = event.currentTarget.dataset.item;
