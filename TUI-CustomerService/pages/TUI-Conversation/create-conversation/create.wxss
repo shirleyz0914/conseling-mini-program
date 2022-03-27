@@ -43,7 +43,7 @@
 }
 .tui-showID {
     padding-left: 80rpx;
-    ine-height: 40rpx;
+    line-height: 40rpx;
     font-size: 28rpx;
     color: white;
     height: 50rpx;
