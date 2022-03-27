@@ -1,0 +1,16 @@
+<view class="waitList-page">
+  <view class="waitList-card">
+    <view class="waitList-left">
+      <image class="counseler-avatar" src="{{counselorInfo.avatarUrl}}" />
+    </view>
+    <view class="waitList-middle">
+      <view class="counseler-information-text">咨询师：{{counselorInfo.name}}</view>
+      <view class="counseler-information-text">等待中，已等待</view>
+      <view class="counseler-information-text">{{h}}:{{m}}:{{s}}</view>
+    </view>
+    <view class="waitList-right" bindtap="goCancel">
+      <image class="cancel-icon" src="../../static/images/cancel-icon.png" />
+      <view class="cancel-text">取消咨询</view>
+    </view>
+  </view>
+</view>

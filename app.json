@@ -11,7 +11,8 @@
     "pages/TUI-User-Center/about/about",
     "pages/TUI-User-Center/personal/personal",
     "pages/TUI-User-Center/cancel/cancel",
-    "pages/TUI-User-Center/webview/webview"
+    "pages/TUI-User-Center/webview/webview",
+    "pages/WaitList/waitList"
   ],
   "plugins": {
     "myPlugin": {
