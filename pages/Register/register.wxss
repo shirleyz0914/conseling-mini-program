@@ -52,7 +52,7 @@
 }
 .box{
   width: 65%;
-  height: 500rpx;
+  height: 400px;
   position: relative;
   background: #ffffff;
   border-radius: 8px;
@@ -82,6 +82,7 @@
 }
 .register {
   display: flex;
+  flex-direction: column;
   box-sizing: border-box;
   width: 100%;
 }
@@ -110,6 +111,12 @@
   font-size: 16px;
   color: #FFFFFF;
   letter-spacing: 0;
+}
+.go-login {
+  font-size: 24rpx;
+  color:rgba(0,110,255,1);
+  margin-top: 48rpx;
+  text-align: center;
 }
 .codeBtn{
   background: #006EFF;

@@ -1,0 +1,56 @@
+.appointment-page {
+  width: 100%;
+  height: 100%;
+}
+.appointment-list-card {
+  margin: 28rpx 28rpx;
+  border: solid 1rpx #666;
+  display: flex;
+  flex-direction: row;
+}
+.counseler-list-left{
+  margin: 48rpx 36rpx;
+  width: 150rpx;
+}
+.counseler-avatar {
+  
+  height: 128rpx;
+  width: 128rpx;
+  border-radius: 64rpx;
+}
+.counseler-list-middle {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin-top: 48rpx;
+}
+.counseler-information-text {
+  font-size: 32rpx;
+  margin-top: 18rpx;
+}
+.counseler-list-right{
+  display: flex;
+  flex-direction: column;
+}
+.counseler-list-status-busy {
+  background-color: #fcc3b9;
+  width: 96rpx;
+  height: 48rpx;
+  align-items: center;
+}
+.counseler-list-status-free {
+  background-color: #b8f8d6;
+  width: 96rpx;
+  height: 48rpx;
+}
+.counseler-list-status-text {
+  color: #000;
+  text-align: center;
+  font-size: 28rpx;
+}
+.select-btn {
+  margin-top: 88rpx;
+  text-align: center;
+  background-color: #f5f5f5;
+  border: solid 1rpx #666
+}

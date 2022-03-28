@@ -1,16 +1,18 @@
 {
   "pages": [
-    "pages/Login/login",
-    "pages/Register/register",
-    "pages/ConsultationRecords/consultationRecords",
-    "pages/SignConsent/signConsent",
     "pages/Index/index",
+    "pages/Appointment/appointment",
+    "pages/ConsultationRecords/consultationRecords",
+    "pages/Login/login",
     "pages/Profile/profile",
+    "pages/Register/register",
+    "pages/SignConsent/signConsent",
     "pages/TUI-User-Center/mine/mine",
-    "pages/TUI-User-Center/personal/personal",
     "pages/TUI-User-Center/about/about",
+    "pages/TUI-User-Center/personal/personal",
     "pages/TUI-User-Center/cancel/cancel",
-    "pages/TUI-User-Center/webview/webview"
+    "pages/TUI-User-Center/webview/webview",
+    "pages/WaitList/waitList"
   ],
   "plugins": {
     "myPlugin": {
@@ -23,14 +25,17 @@
       {
         "pagePath": "pages/Index/index",
         "text": "首页",
-        "iconPath": "./static/images/homepage-normal.png",
-        "selectedIconPath": "./static/images/homepage-hover.png"
+        "iconPath": "./static/images/homepage-icon.png"
       },
       {
-        "pagePath": "pages/TUI-User-Center/mine/mine",
-        "text": "我的",
-        "iconPath": "./static/images/mine-normal.png",
-        "selectedIconPath": "./static/images/mine-hover.png"
+        "pagePath": "pages/Appointment/appointment",
+        "text": "咨询会话",
+        "iconPath": "./static/images/dialog-icon.png"
+      },
+      {
+        "pagePath": "pages/ConsultationRecords/consultationRecords",
+        "text": "咨询记录",
+        "iconPath": "./static/images/record-icon.png"
       }
     ]
   },

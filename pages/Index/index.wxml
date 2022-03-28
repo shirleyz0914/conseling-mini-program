@@ -3,38 +3,35 @@
     <view class="personal-section">
       <image class="image_radius"  src='{{userInfo.avatar|| "https://sdk-web-1252463788.cos.ap-hongkong.myqcloud.com/component/TUIKit/assets/avatar_21.png"}}'/>
       <view class="information-section">
-        <view class="welcome-text">你好，{{userInfo.nick||"游客"}}</view>
-        <view class="phone-nunber-text">{{userInfo.phone||"登录后即可使用服务"}}</view>
+        <view class="welcome-text">你好，{{nickName||"游客"}}</view>
+        <view class="phone-nunber-text">{{numberShow}}</view>
       </view>
-      <image class="edit-icon" src="./image/edit-icon.png"/>
+      <image class="edit-icon" src="./image/edit-icon.png" bindtap="eidtProfile"/>
       <view class="quit-main">
         <view class="quit-main-text" bindtap="quit">退出登录</view>
       </view>
     </view>
-    <view class="counsel-section">
+    <view class="counsel-section" bindtap="goConseling">
       <image class="counsel-icon" src="./image/counsel-icon.png"/>
       <text class="start-to-counsel">点击此处，立即在线咨询</text>
     </view>
     <scroll-view class="history-section" scroll-y="true">
       <view class="counsel-history-card" wx:for="{{counselHistoryList}}" wx:key="index" data-item="{{item}}" bindtap="">
-        <view class="tui-scene-name">{{item.name}}</view>
-        <image class="tui-scene-link" src="../../static/assets/detail.svg" />
+        <view class="history-card-header">
+          <view class="consel-time">{{item.time}}</view>
+          <image class="detail-icon" src="../../static/assets/detail.svg" />
+        </view>
+        <view class="history-card-main">
+          <view class="history-card-main-left">
+            <image class="conseler-avatar" src="{{item.avatarUrl}}" />
+            <view class="conseler-name">{{item.name}}</view>
+          </view>
+          <view class="history-card-main-right">
+            <view class="consel-duration">咨询用时：{{item.period}}</view>
+            <view class="consel-rate">我的评价：{{item.score}} / 5</view>
+          </view>
+        </view>
       </view>
     </scroll-view>
-    <!-- <view class="counter-main">
-      <view class="header-content">
-        <image src="../../static/images/im.png" class="icon" />
-        <view class="text">
-          <view class="text-header">登录 · 即时通信</view>
-        </view>
-      </view>
-      <view class="tui-scene-router">
-        <view class="scene-item-card" wx:for="{{sceneList}}" wx:key="index" data-item="{{item}}" bindtap="handleOnPageNavigate">
-          <image class="tui-scene-icon" src="{{item.iconUrl}}"/>
-          <view class="tui-scene-name">{{item.name}}</view>
-          <image class="tui-scene-link" src="../../static/assets/detail.svg" />
-        </view>
-      </view>
-    </view> -->
   </view>
 </view>

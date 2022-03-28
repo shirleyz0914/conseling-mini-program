@@ -12,6 +12,12 @@
   flex-direction: column;
   align-items: center;
 }
+.avatar-wrapper{
+  padding: 0;
+  width: 200rpx;
+  height: 200rpx;
+  align-items: center;
+}
 .avatar-image{
   width: 180rpx;
   height: 180rpx;
