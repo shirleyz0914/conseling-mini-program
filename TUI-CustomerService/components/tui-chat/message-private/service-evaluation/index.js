@@ -22,7 +22,6 @@ Component({
     displayTag: false,
     scoreList: [1, 2, 3, 4, 5],
     score: 5,
-    comment: '',
   },
 
   /**
@@ -43,27 +42,20 @@ Component({
         score,
       });
     },
-    bindTextAreaInput(e) {
-      this.setData({
-        comment: e.detail.value,
-      });
-    },
     sendMessage() {
       this.triggerEvent('sendCustomMessage', {
         payload: {
           // data 字段作为表示，可以自定义
           data: 'evaluation',
-          description: '对本次服务的评价', // 获取骰子点数
+          description: '对咨询师的评价：', // 获取骰子点数
           extension: JSON.stringify({
             score: this.data.score,
-            comment: this.data.comment,
           }),
         },
       });
 
       this.setData({
         score: 0,
-        comment: '',
       });
       this.handleClose();
     },
@@ -73,7 +65,6 @@ Component({
     show() {
       this.setData({
         score: 0,
-        comment: '',
       });
     },
   },

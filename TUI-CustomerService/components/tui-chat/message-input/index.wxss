@@ -1,37 +1,16 @@
 .TUI-message-input-container {
     background-color: #F1F1F1;
-    padding-bottom: 80rpx;
+    padding-bottom: 30rpx;
 }
 
 .TUI-message-input {
     display: flex;
-    padding-bottom: 16rpx;
+    margin-top: 16rpx;
+    padding: 30rpx 0 0 0;
     background-color: #F1F1F1;
     width: 100vw;
 }
-.TUI-commom-function {
-    display: flex;
-    flex-wrap: nowrap;
-    width: 750rpx;
-    height: 106rpx;
-    background-color: #F1F1F1;
-    align-items: center;
-}
-.TUI-commom-function-item {
-    display: flex;
-    width: 136rpx;
-    justify-content: center;
-    align-items: center;
-    font-size: 24rpx;
-    color: #FFFFFF;
-    height: 48rpx;
-    margin-left: 16rpx;
-    border-radius: 24rpx;
-    background-color: #00C8DC;
-}
-.TUI-commom-function-item:first-child{
-    margin-left: 48rpx;
-}
+
 .TUI-message-input-functions {
     display: flex;
 }
@@ -57,7 +36,7 @@
     display: flex;
     flex-wrap: wrap;
     width: 100vw;
-    height: 450rpx;
+    height: 200rpx;
     margin-left: 14rpx;
     margin-right: 14rpx;
 }
@@ -80,6 +59,9 @@
     display: flex;
     align-items: center;
     margin: 0 10rpx;
+    padding: 10rpx;
+    border: 4rpx solid #333333;
+    border-radius: 8px;
 }
 
 .TUI-Emoji-area {
