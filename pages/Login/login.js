@@ -51,6 +51,7 @@ Page({
   login() {
     wx.request({
       url: 'http://1.15.129.51:3000/auth',
+      // url: 'http://127.0.0.1:4523/mock/738059/auth', //mock的auth成功的接口
       method: 'POST',
       data: {
         "user_name": this.data.user_name,
@@ -61,23 +62,26 @@ Page({
         if (res.statusCode === 200){
           // 接口请求成功
           const userID = this.data.user_name;
-          const userSig = genTestUserSig(userID).userSig
+          const userSig = genTestUserSig(userID).userSig;
           app.globalData.userInfo = {
             userSig,
             userID: userID,
-          }
+          };
+          wx.setStorageSync('islogin', true);
           setTokenStorage({
             userInfo: app.globalData.userInfo,
-          })
-          if (this.data.path && this.data.path !== 'undefined') {
-            wx.redirectTo({
-              url: this.data.path,
-            })
-          } else {
+          });
+          wx.$TUIKit.login({
+            userID: app.globalData.userInfo.userID,
+            userSig: app.globalData.userInfo.userSig,
+          }).then(() => {
+            console.log("---登录成功---");
             wx.switchTab({
               url: '../Index/index',
-            })
-          }
+            });
+          }).catch(() => {
+            console.log("---登录失败---");
+          });
         } else {
           wx.showModal({
             title: '提示',

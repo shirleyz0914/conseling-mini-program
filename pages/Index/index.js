@@ -6,10 +6,10 @@ const app = getApp();
 const defaultNickName = 'ss';
 const defaultPhoneNumber = '13012876102';
 const defaultConselHistoryList = [
-  { name: '咨询师1', avatarUrl: "https://sdk-web-1252463788.cos.ap-hongkong.myqcloud.com/component/TUIKit/assets/avatar_21.png", time: 'YYYY/MM/DD HH:MM:SS', period: 'xx小时XX分钟', score: 5 },
-  { name: '咨询师2', avatarUrl: "https://sdk-web-1252463788.cos.ap-hongkong.myqcloud.com/component/TUIKit/assets/avatar_21.png", time: 'YYYY/MM/DD HH:MM:SS', period: 'xx小时XX分钟', score: 4 },
-  { name: '咨询师3', avatarUrl: "https://sdk-web-1252463788.cos.ap-hongkong.myqcloud.com/component/TUIKit/assets/avatar_21.png", time: 'YYYY/MM/DD HH:MM:SS', period: 'xx小时XX分钟', score: 5},
-  { name: '咨询师4', avatarUrl: "https://sdk-web-1252463788.cos.ap-hongkong.myqcloud.com/component/TUIKit/assets/avatar_21.png", time: 'YYYY/MM/DD HH:MM:SS', period: 'xx小时XX分钟', score: 5},
+  { id: '1', name: '咨询师1', avatarUrl: "https://sdk-web-1252463788.cos.ap-hongkong.myqcloud.com/component/TUIKit/assets/avatar_21.png", time: '2022/01/24 13:35:00', period: '01小时23分钟', score: 5 },
+  { id: '2', name: '咨询师2', avatarUrl: "https://sdk-web-1252463788.cos.ap-hongkong.myqcloud.com/component/TUIKit/assets/avatar_21.png", time: 'YYYY/MM/DD HH:MM:SS', period: 'xx小时XX分钟', score: 4 },
+  { id: '3', name: '咨询师3', avatarUrl: "https://sdk-web-1252463788.cos.ap-hongkong.myqcloud.com/component/TUIKit/assets/avatar_21.png", time: 'YYYY/MM/DD HH:MM:SS', period: 'xx小时XX分钟', score: 5},
+  { id: '4', name: '咨询师4', avatarUrl: "https://sdk-web-1252463788.cos.ap-hongkong.myqcloud.com/component/TUIKit/assets/avatar_21.png", time: 'YYYY/MM/DD HH:MM:SS', period: 'xx小时XX分钟', score: 5},
 ];
 // eslint-disable-next-line no-undef
 Page({
@@ -26,15 +26,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad() {
-    if (app.globalData.userInfo != undefined){
-      wx.$TUIKit.login({
-        userID: app.globalData.userInfo.userID,
-        userSig: app.globalData.userInfo.userSig,
-      }).then(() => {
-      })
-        .catch(() => {
-      });
-    } else {
+    this.checkLoginStatus();
+  },
+  checkLoginStatus() {
+    let token = wx.getStorageSync('token');
+    let isLogin = wx.getStorageSync('islogin');
+    console.log("----Token:", token);
+    if (token == undefined || isLogin == false) {
       wx.redirectTo({
         url: '../Login/login',
       })
