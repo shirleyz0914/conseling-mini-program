@@ -9,18 +9,27 @@
   /*top: 0;*/
   flex-shrink: 0;
   width: 750rpx;
-  height: 176rpx;
+  height: 480rpx;
   background-color: #006EFF;
 }
 
 .tui-chatroom-navigatorbar-back{
-    position: absolute;
+    margin: 50rpx 40rpx;
     width: 60rpx;
     height: 60rpx;
-    left: 24rpx;
-    bottom: 15rpx;
 }
-
+.consultant-info{
+  width: 90%;
+  height: 17vh;
+  position: relative;
+  background: #ffffff;
+  border-radius: 4px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  margin: 0 20px;
+}
 .conversation-title {
   position: absolute;
   width: 350rpx;
