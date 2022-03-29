@@ -6,7 +6,7 @@ const app = getApp();
 const defaultCounselerList = [
   { "id": 1, "name": "Counseler1", "avatarUrl": "https://sdk-web-1252463788.cos.ap-hongkong.myqcloud.com/component/TUIKit/assets/avatar_21.png", "averageScore": 4.5, "status": 0 },
   { "id": 2, "name": "ss", "avatarUrl": "https://sdk-web-1252463788.cos.ap-hongkong.myqcloud.com/component/TUIKit/assets/avatar_21.png", "averageScore": 4.3, "status": 1 },
-  { "id": 3, "name": "Counseler3", "avatarUrl": "https://sdk-web-1252463788.cos.ap-hongkong.myqcloud.com/component/TUIKit/assets/avatar_21.png", "averageScore": 4.8, "status": 1 }
+  { "id": 3, "name": "zhqtest", "avatarUrl": "https://sdk-web-1252463788.cos.ap-hongkong.myqcloud.com/component/TUIKit/assets/avatar_21.png", "averageScore": 4.8, "status": 1 }
 ];
 
 
