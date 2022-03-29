@@ -11,19 +11,19 @@
         <view class="list-item">
           <view class="list-item-line">
             <label class="list-item-label">用户名</label>
-            <input class="input" type="text" placeholder="请输入用户名" bindinput='bindUserNameInput' placeholder-style="color:#BBBBBB;"/>
+            <input class="input" type="nickname" placeholder="请输入用户名" bindinput='bindUserNameInput' placeholder-style="color:#BBBBBB;"/>
           </view>
           <view class="list-item-line">
             <label class="list-item-label">手机号</label>
-            <input class="input" type="number" placeholder="请输入手机号" bindinput='bindPhoneInput' placeholder-style="color:#BBBBBB;"/>
+            <input class="input" type="number" maxlength="11" placeholder="请输入手机号" bindinput='bindPhoneInput' placeholder-style="color:#BBBBBB;"/>
           </view>
           <view class="list-item-line">
             <label class="list-item-label">密码</label>
-            <input class="input" type="text" placeholder="请输入密码" bindinput='bindPasswordInput' password="true" placeholder-style="color:#BBBBBB;"/>
+            <input class="input" type="text" password="true" placeholder="请输入密码" bindinput='bindPasswordInput' password="true" placeholder-style="color:#BBBBBB;"/>
           </view>
           <view class="list-item-line">
             <label class="list-item-label">确认密码</label>
-            <input class="input" type="text" placeholder="请输入密码" bindinput='bindPasswordConfirmedInput' password="true" placeholder-style="color:#BBBBBB;"/>
+            <input class="input" type="text" password="true" placeholder="请输入密码" bindinput='bindPasswordConfirmedInput' password="true" placeholder-style="color:#BBBBBB;"/>
           </view>
         </view>
       </view>

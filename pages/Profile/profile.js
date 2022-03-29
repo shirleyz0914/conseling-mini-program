@@ -17,6 +17,7 @@ Page({
     const { avatarUrl } = e.detail;
     this.setData({
       avatarUrl,
+      profileChanged: true
     });
   },
   bindNameInput(e) {
@@ -71,13 +72,13 @@ Page({
       data: {
         "user_id": null,
         "user_name": "TestUser",
-        "user_password": "1qwe2asd",
         "role": "visitor",
         "visitor_id": null,
         "visitor_name": realName,
         "visitor_gender": "Male",
         "visitor_phone": phoneNumber,
-        "visitor_status": "nulla ut"
+        "visitor_status": "nulla ut",
+        "avatarUrl": avatarUrl
       },
       success: (res) => {
 

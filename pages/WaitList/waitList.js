@@ -17,37 +17,34 @@ Page({
     var second = that.data.s;
     var ms = 0
     setInterval(function() {
-      ms ++;
-      if (ms >= 60) {
-        ms = 0;
-        second ++;
-        if (second >= 60) {
-          second = 0;
-          minute ++;
-          if (minute >= 60) {
-            minute = 0;
-            hour ++;
-            that.setData({
-              h: (hour < 10 ? '0' + hour : hour)
-            });
-          } else {
-            that.setData({
-              m: (minute < 10 ? '0' + minute : minute)
-            })
-          }
+      second ++;
+      if (second >= 60) {
+        second = 0;
+        minute ++;
+        if (minute >= 60) {
+          minute = 0;
+          hour ++;
+          that.setData({
+            h: (hour < 10 ? '0' + hour : hour)
+          });
         } else {
           that.setData({
-            s: (second < 10 ? '0' + second : second)
+            m: (minute < 10 ? '0' + minute : minute)
           })
         }
+      } else {
+        that.setData({
+          s: (second < 10 ? '0' + second : second)
+        })
       }
-    })
+    }, 1000)
   },
   onLoad() {
     this.queryTime();
   },
   goCancel() {
     console.log("-----取消咨询------");
+    clearInterval();
     wx.switchTab({
       url: '../Index/index'
     });
