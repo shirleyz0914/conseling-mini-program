@@ -5,34 +5,42 @@ Page({
     dataList:[
       {
         id:"咨询师-1",
+        date:"YYYY/MM/DD",
         checked:false
       },
       {
         id:"咨询师-2",
+        date:"YYYY/MM/DD",
         checked:false
       },
       {
         id:"咨询师-3",
+        date:"YYYY/MM/DD",
         checked:false
       },
       {
         id:"咨询师-4",
+        date:"YYYY/MM/DD",
         checked:false
       },
       {
         id:"咨询师-5",
+        date:"YYYY/MM/DD",
         checked:false
       },
       {
         id:"咨询师-6",
+        date:"YYYY/MM/DD",
         checked:false
       },
       {
         id:"咨询师-7",
+        date:"YYYY/MM/DD",
         checked:false
       },
       {
         id:"咨询师-8",
+        date:"YYYY/MM/DD",
         checked:false
       },
     ], // 数据列表

@@ -58,6 +58,27 @@
           "name": "等待页",
           "pathName": "pages/WaitList/waitList",
           "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "会话列表",
+          "pathName": "TUI-CustomerService/pages/TUI-Conversation/conversation/conversation",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "创建会话",
+          "pathName": "TUI-CustomerService/pages/TUI-Conversation/create-conversation/create",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "聊天页面",
+          "pathName": "TUI-CustomerService/pages/TUI-Chat/chat",
+          "query": "",
           "scene": null,
           "launchMode": "default"
         }
