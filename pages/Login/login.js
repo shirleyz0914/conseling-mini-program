@@ -50,18 +50,16 @@ Page({
   // 登录
   login() {
     wx.request({
-      url: 'http://1.15.129.51:3000/auth',
-      // url: 'http://127.0.0.1:4523/mock/738059/auth', //mock的auth成功的接口
+      url: 'http://1.15.129.51:3000/wx-users/login',
       method: 'POST',
       data: {
         "user_name": this.data.user_name,
         "user_password": this.data.password
       },
       success: (res) => {
-        console.log("----登录----", res);
         if (res.statusCode === 200){
           // 接口请求成功
-          // if (res.data.errCode === 0) {
+          if (res.data.errCode === 0) {
             // 成功情况
             const userID = this.data.user_name;
             const userSig = genTestUserSig(userID).userSig;
@@ -84,11 +82,23 @@ Page({
             }).catch(() => {
               console.log("---登录失败---");
             });
-          // }
+          } else if (res.data.errCode === 8) {
+            wx.showModal({
+              title: '提示',
+              content: '用户名或密码错误，请再次确认。未注册用户请先完成注册。',
+              showCancel: false
+            })
+          } else {
+            wx.showModal({
+              title: '提示',
+              content: '系统错误，请稍后重试。',
+              showCancel: false
+            })
+          }
         } else {
           wx.showModal({
             title: '提示',
-            content: '用户名或密码错误，请再次确认。未注册用户请先完成注册。',
+            content: '系统错误，请稍后重试。',
             showCancel: false
           })
         }

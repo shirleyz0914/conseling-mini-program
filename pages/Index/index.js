@@ -27,6 +27,34 @@ Page({
    */
   onLoad() {
     this.checkLoginStatus();
+    this.getVisitorInfo();
+  },
+  getVisitorInfo(){
+    const user_name = wx.getStorageSync('token').userInfo.userID;
+    wx.request({
+      url: 'http://1.15.129.51:3000/wx-users/getVisitorInfo',
+      method: 'GET',
+      data: {
+        "user_name": user_name,
+      },
+      success: (res) => {
+        if (res.statusCode === 200) {
+          if (res.data.code === 0) {
+            const { 
+              user_name,
+              visitor_phone,
+              visitor_avatar,
+            } = res.data.visitorInfo;
+            this.setData({
+              nickName: user_name,
+              phoneNumber: visitor_phone || '',
+              avatarUrl: visitor_avatar || "https://sdk-web-1252463788.cos.ap-hongkong.myqcloud.com/component/TUIKit/assets/avatar_21.png",
+              numberShow: visitor_phone != '' && visitor_phone.substr(0,3) + "****" + visitor_phone.substr(7,4) || '',
+            })
+          }
+        }
+      }
+    })
   },
   checkLoginStatus() {
     let token = wx.getStorageSync('token');
@@ -40,10 +68,7 @@ Page({
   },
   onShow() {
     this.setData({
-      counselHistoryList: defaultConselHistoryList,
-      nickName: defaultNickName,
-      phoneNumber: defaultPhoneNumber,
-      numberShow: defaultPhoneNumber.substr(0,3) + "****" + defaultPhoneNumber.substr(7,4)
+      counselHistoryList: defaultConselHistoryList
     })
   },
   eidtProfile() {
