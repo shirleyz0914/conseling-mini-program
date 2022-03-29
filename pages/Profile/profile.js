@@ -119,6 +119,15 @@ Page({
         if (res.statusCode === 200) {
           if (res.data.errCode === 0) {
             console.log("资料修改成功");
+            let promise = wx.$TUIKit.updateMyProfile({
+              nick: realName,
+              avatar: avatarUrl
+            });
+            promise.then(function(imResponse) {
+              console.log(imResponse.data);
+            }).catch(function(imError) {
+              console.log(imError);
+            })
             wx.switchTab({
               url: '../Index/index',
               success: function (e) {
