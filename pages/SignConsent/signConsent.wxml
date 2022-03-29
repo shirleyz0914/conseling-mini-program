@@ -44,7 +44,7 @@
           <view class="text-box"><text>我已阅读并同意以上内容</text></view>
       </view>
       <view class='login'>
-            <button class="loginBtn" disabled="{{!privateAgree}}" bind:tap='login'>进入咨询</button>
+            <button class="loginBtn" disabled="{{!privateAgree}}" bind:tap='goCounseling'>进入咨询</button>
       </view>
     </view>
   </view>

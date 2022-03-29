@@ -50,7 +50,7 @@ Page({
     wx.$TUIKit.logout().then(() => {
       wx.clearStorage();
       app.resetLoginData();
-      wx.redirectTo({ url: '../../TUI-Login/login',
+      wx.redirectTo({ url: '../../Login/login',
         success: () => {
           wx.showToast({
             title: '退出成功',

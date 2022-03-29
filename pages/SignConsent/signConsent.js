@@ -21,11 +21,11 @@ Page({
   onShow() {
   },
   // Token没过期可以利用Token登陆
-  loginWithToken() {
-    wx.switchTab({
-      url: '../Index/index',
-    })
-  },
+  // loginWithToken() {
+  //   wx.switchTab({
+  //     url: '../Index/index',
+  //   })
+  // },
   // 回退
   onBack() {
     wx.navigateTo({
@@ -39,44 +39,33 @@ Page({
       userID: val,
     })
   },
-  login() {
-    const userID = this.data.userID
-    const userSig = genTestUserSig(userID).userSig
-    logger.log(`TUI-login | login  | userSig:${userSig} userID:${userID}`)
-    app.globalData.userInfo = {
-      userSig,
-      userID,
-    }
-    setTokenStorage({
-      userInfo: app.globalData.userInfo,
-    })
-    if (this.data.path && this.data.path !== 'undefined') {
-      wx.redirectTo({
-        url: this.data.path,
-      })
-    } else {
-      wx.switchTab({
-        url: '../Index/index',
-      })
-    }
-  },
+  // login() {
+  //   const userID = this.data.userID
+  //   const userSig = genTestUserSig(userID).userSig
+  //   logger.log(`TUI-login | login  | userSig:${userSig} userID:${userID}`)
+  //   app.globalData.userInfo = {
+  //     userSig,
+  //     userID,
+  //   }
+  //   if (this.data.path && this.data.path !== 'undefined') {
+  //     wx.redirectTo({
+  //       url: this.data.path,
+  //     })
+  //   } else {
+  //     wx.switchTab({
+  //       url: '../Index/index',
+  //     })
+  //   }
+  // },
   onAgreePrivateProtocol() {
     this.setData({
       privateAgree: !this.data.privateAgree,
     })
   },
-
-  linkToPrivacyTreaty() {
-    const url = 'https://web.sdk.qcloud.com/document/Tencent-IM-Privacy-Protection-Guidelines.html'
+  goCounseling() {
+    const payloadData = wx.getStorageSync('payloadData');
     wx.navigateTo({
-      url: `../TUI-User-Center/webview/webview?url=${url}&nav=Privacy-Protection`,
+      url: `../../TUI-CustomerService/pages/TUI-Chat/chat?conversationInfomation=${JSON.stringify(payloadData)}`,
     })
-  },
-
-  linkToUserAgreement() {
-    const url = 'https://web.sdk.qcloud.com/document/Tencent-IM-User-Agreement.html'
-    wx.navigateTo({
-      url: `../TUI-User-Center/webview/webview?url=${url}&nav=User-Agreement`,
-    })
-  },
+  }
 })
