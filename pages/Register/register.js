@@ -74,24 +74,56 @@ Page({
         content: '密码输入不一致，请重新填写',
         showCancel: false
       });
+    } else if (password.length < 6) {
+      wx.showModal({
+        title: '提示',
+        content: '为了您的账户安全，请设置六位及以上密码。',
+        showCancel: false
+      });
+    } else if (phone.length != 11) {
+      wx.showModal({
+        title: '提示',
+        content: '请正确输入11位手机号码。',
+        showCancel: false
+      });
+    } else if (userName.length < 1) {
+      wx.showModal({
+        title: '提示',
+        content: '请填写用户名。',
+        showCancel: false
+      });
     } else {
       wx.request({
-        url: 'http://1.15.129.51:3000/users/wx/visitor',
-        // url: 'http://127.0.0.1:4523/mock/738059/users/wx/visitor', //mock接口地址
+        url: 'http://1.15.129.51:3000/wx-users/register',
         method: 'POST',
         data: {
           "user_name": userName,
           "visitor_phone": phone,
           "user_password": password,
-          // "role": "visitor",
-          // "visitor_name": null,
-          // "visitor_gender": null
         },
         success: (res) => {
           console.log("----注册-----", res);
           if (res.statusCode === 200) {
-            wx.redirectTo({
-              url: '../Profile/profile',
+            if (res.data.errCode === 0) {
+              wx.redirectTo({
+                url: '../Profile/profile',
+              })
+            } else if (res.data.errCode === 2) {
+              wx.showModal({
+                title: '提示',
+                content: '用户名已存在，请重新填写',
+                showCancel: false
+              })
+            } else {
+              wx.showToast({
+                title: '系统异常，请稍后重试。',
+                duration: 2000
+              })
+            }
+          } else {
+            wx.showToast({
+              title: '系统异常，请稍后重试。',
+              duration: 2000
             })
           }
         }
