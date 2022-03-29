@@ -13,6 +13,36 @@ Page({
     contactName: '',
     contactPhone: ''
   },
+  getVisitorInfo(){
+    const user_name = wx.getStorageSync('token').userInfo.userID;
+    wx.request({
+      url: 'http://1.15.129.51:3000/wx-users/getVisitorInfo',
+      method: 'GET',
+      data: {
+        "user_name": user_name,
+      },
+      success: (res) => {
+        if (res.statusCode === 200) {
+          if (res.data.code === 0) {
+            const { 
+              visitor_avatar,
+              visitor_name,
+              visitor_phone,
+              emergency_name,
+              emergency_phone
+            } = res.data.visitorInfo;
+            this.setData({
+              avatarUrl: visitor_avatar || "https://sdk-web-1252463788.cos.ap-hongkong.myqcloud.com/component/TUIKit/assets/avatar_21.png",
+              realName: visitor_name || '',
+              phoneNumber: visitor_phone || '',
+              contactName: emergency_name || '',
+              contactPhone: emergency_phone || '',
+            })
+          }
+        }
+      }
+    })
+  },
   onChooseAvatar(e) {
     const { avatarUrl } = e.detail;
     this.setData({
@@ -62,7 +92,9 @@ Page({
         url: '../Login/login',
       })
     }
+    this.getVisitorInfo();
   },
+  
   confirmChange(){
     console.log("----确认修改-----");
     const { realName, phoneNumber, contactName, contactPhone } = this.data;

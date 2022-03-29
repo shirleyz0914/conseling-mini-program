@@ -1,9 +1,9 @@
 <view class="container">
   <view class="counter-warp">
     <view class="personal-section">
-      <image class="image_radius"  src='{{userInfo.avatar|| "https://sdk-web-1252463788.cos.ap-hongkong.myqcloud.com/component/TUIKit/assets/avatar_21.png"}}'/>
+      <image class="image_radius"  src='{{avatarUrl}}'/>
       <view class="information-section">
-        <view class="welcome-text">你好，{{nickName||"游客"}}</view>
+        <view class="welcome-text">你好，{{nickName}}</view>
         <view class="phone-nunber-text">{{numberShow}}</view>
       </view>
       <image class="edit-icon" src="./image/edit-icon.png" bindtap="eidtProfile"/>
