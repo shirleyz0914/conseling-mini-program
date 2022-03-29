@@ -7,11 +7,13 @@ const defaultAvatarUrl = "https://sdk-web-1252463788.cos.ap-hongkong.myqcloud.co
 Page({
   data: {
     avatarUrl: defaultAvatarUrl,
+    userName: '',
     profileChanged: false,
     realName: '',
     phoneNumber: '',
     contactName: '',
-    contactPhone: ''
+    contactPhone: '',
+    userID: '',
   },
   getVisitorInfo(){
     const user_name = wx.getStorageSync('token').userInfo.userID;
@@ -24,7 +26,8 @@ Page({
       success: (res) => {
         if (res.statusCode === 200) {
           if (res.data.code === 0) {
-            const { 
+            const {
+              user_id,
               visitor_avatar,
               visitor_name,
               visitor_phone,
@@ -32,7 +35,9 @@ Page({
               emergency_phone
             } = res.data.visitorInfo;
             this.setData({
-              avatarUrl: visitor_avatar || "https://sdk-web-1252463788.cos.ap-hongkong.myqcloud.com/component/TUIKit/assets/avatar_21.png",
+              userID: user_id,
+              userName: user_name,
+              avatarUrl: visitor_avatar || defaultAvatarUrl,
               realName: visitor_name || '',
               phoneNumber: visitor_phone || '',
               contactName: emergency_name || '',
@@ -51,39 +56,41 @@ Page({
     });
   },
   bindNameInput(e) {
-    const val = e.target.value;
+    const val = e.detail.value;
     this.setData({
       realName: val,
       profileChanged: true
     })
   },
   bindPhoneInput(e) {
-    const val = e.target.value;
+    const val = e.detail.value;
     this.setData({
       phoneNumber: val,
       profileChanged: true
     })
   },
   bindContactNameInput(e) {
-    const val = e.target.value;
+    const val = e.detail.value;
     this.setData({
       contactName: val,
       profileChanged: true
     })
   },
   bindContactInput(e) {
-    const val = e.target.value;
+    const val = e.detail.value;
     this.setData({
       contactPhone: val,
       profileChanged: true
     })
   },
   onLoad() {
-    if (app.globalData.userInfo != undefined){
+    const islogin = wx.getStorageSync('islogin');
+    if (islogin === true && app.globalData.userInfo != undefined){
       wx.$TUIKit.login({
         userID: app.globalData.userInfo.userID,
         userSig: app.globalData.userInfo.userSig,
       }).then(() => {
+        this.getVisitorInfo();
       })
         .catch(() => {
       });
@@ -92,28 +99,36 @@ Page({
         url: '../Login/login',
       })
     }
-    this.getVisitorInfo();
   },
-  
+
   confirmChange(){
-    console.log("----确认修改-----");
-    const { realName, phoneNumber, contactName, contactPhone } = this.data;
+    const { userID, userName, avatarUrl, realName, phoneNumber, contactName, contactPhone } = this.data;
     wx.request({
-      url: 'http://1.15.129.51:3000/editUsers/wx/visitor',
-      method: 'POST',
+      url: 'http://1.15.129.51:3000/wx-users/editInfo',
+      method: 'PUT',
       data: {
-        "user_id": null,
-        "user_name": "TestUser",
-        "role": "visitor",
-        "visitor_id": null,
+        "user_id": userID,
+        "user_name": userName,
         "visitor_name": realName,
-        "visitor_gender": "Male",
         "visitor_phone": phoneNumber,
-        "visitor_status": "nulla ut",
-        "avatarUrl": avatarUrl
+        "visitor_avatar": avatarUrl,
+        "emergency_name": contactName,
+        "emergency_phone": contactPhone,
       },
       success: (res) => {
-
+        if (res.statusCode === 200) {
+          if (res.data.errCode === 0) {
+            console.log("资料修改成功");
+            wx.switchTab({
+              url: '../Index/index',
+              success: function (e) {
+                var page = getCurrentPages().pop();
+                if (page == undefined || page == null) return;
+                page.onLoad();
+              }
+            })
+          }
+        }
       }
     })
   }

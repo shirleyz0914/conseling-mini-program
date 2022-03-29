@@ -12,7 +12,7 @@
       </view>
       <view class="list-item-line">
         <label class="list-item-label">手 机 号 码</label>
-        <input class="input" type="number" placeholder="请输入手机号" bindinput='bindPhoneInput' placeholder-style="font-size:14px;color:#BBBBBB;" value='{{phoneNumber}}'/>
+        <input class="input" type="number" maxlength="11" placeholder="请输入手机号" bindinput='bindPhoneInput' placeholder-style="font-size:14px;color:#BBBBBB;" value='{{phoneNumber}}'/>
       </view>
       <view class="list-item-line">
         <label class="list-item-label">紧急联系人</label>
@@ -20,7 +20,7 @@
       </view>
       <view class="list-item-line">
         <label class="list-item-label">联系人手机</label>
-        <input class="input" type="number" placeholder="请输入紧急联系人手机号码" bindinput='bindContactInput' placeholder-style="font-size:14px;color:#BBBBBB;" value='{{contactPhone}}'/>
+        <input class="input" type="number" maxlength="11" placeholder="请输入紧急联系人手机号码" bindinput='bindContactInput' placeholder-style="font-size:14px;color:#BBBBBB;" value='{{contactPhone}}'/>
       </view>
     </view>
     <view class="reset-password">
