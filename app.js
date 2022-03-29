@@ -5,6 +5,7 @@ import { SDKAPPID } from './debug/GenerateTestUserSig'
 // app.js
 App({
   onLaunch() {
+    wx.clearStorage();
     wx.setStorageSync('islogin', false)
     const SDKAppID = this.globalData.SDKAppID
     wx.setStorageSync(`TIM_${SDKAppID}_isTUIKit`, true)
@@ -41,7 +42,7 @@ App({
       phone: '',
     }
     this.globalData.userProfile = null
-    logger.log(`| app |  resetLoginData | globalData: ${this.globalData}`)
+    // logger.log(`| app |  resetLoginData | globalData: ${this.globalData}`)
   },
   globalData: {
     // userInfo: userID userSig token phone

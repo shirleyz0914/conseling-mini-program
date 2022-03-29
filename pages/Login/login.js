@@ -61,27 +61,30 @@ Page({
         console.log("----登录----", res);
         if (res.statusCode === 200){
           // 接口请求成功
-          const userID = this.data.user_name;
-          const userSig = genTestUserSig(userID).userSig;
-          app.globalData.userInfo = {
-            userSig,
-            userID: userID,
-          };
-          wx.setStorageSync('islogin', true);
-          setTokenStorage({
-            userInfo: app.globalData.userInfo,
-          });
-          wx.$TUIKit.login({
-            userID: app.globalData.userInfo.userID,
-            userSig: app.globalData.userInfo.userSig,
-          }).then(() => {
-            console.log("---登录成功---");
-            wx.switchTab({
-              url: '../Index/index',
+          // if (res.data.errCode === 0) {
+            // 成功情况
+            const userID = this.data.user_name;
+            const userSig = genTestUserSig(userID).userSig;
+            app.globalData.userInfo = {
+              userSig,
+              userID: userID,
+            };
+            wx.setStorageSync('islogin', true);
+            setTokenStorage({
+              userInfo: app.globalData.userInfo,
             });
-          }).catch(() => {
-            console.log("---登录失败---");
-          });
+            wx.$TUIKit.login({
+              userID: app.globalData.userInfo.userID,
+              userSig: app.globalData.userInfo.userSig,
+            }).then(() => {
+              console.log("---登录成功---");
+              wx.switchTab({
+                url: '../Index/index',
+              });
+            }).catch(() => {
+              console.log("---登录失败---");
+            });
+          // }
         } else {
           wx.showModal({
             title: '提示',
