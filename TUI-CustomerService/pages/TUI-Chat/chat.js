@@ -8,7 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    conversationName: '咨询师-X',
+    conversationName: 'XXX',
     conversation: {},
     messageList: [],
     isShow: false,
@@ -23,12 +23,51 @@ Page({
       tim: null,
     },
     unreadCount: 0,
+
+    h: '00',
+    m: '00',
+    s: '00',
+  },
+
+  consultTime(){
+    const that = this;
+    var hour = that.data.h;
+    var minute = that.data.m;
+    var second = that.data.s;
+    var ms = 0
+    setInterval(function() {
+      second ++;
+      if (second >= 60) {
+        second = 0;
+        minute ++;
+        if (minute >= 60) {
+          minute = 0;
+          hour ++;
+          that.setData({
+            h: (hour < 10 ? '0' + hour : hour)
+          });
+        } else {
+          that.setData({
+            m: (minute < 10 ? '0' + minute : minute)
+          })
+        }
+      } else {
+        that.setData({
+          s: (second < 10 ? '0' + second : second)
+        })
+      }
+    }, 1000)
+  },
+  goEvaluate(){
+    this.selectComponent('#message-input').handleServiceEvaluation();
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    this.consultTime();
+
     const { config } = this.data;
     config.sdkAppID = app.globalData.SDKAppID;
     config.userID = app.globalData.userInfo.userID;

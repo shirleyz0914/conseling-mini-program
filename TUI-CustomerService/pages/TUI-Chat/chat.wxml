@@ -3,9 +3,21 @@
   <view class="tui-chatroom-navigatorbar">
     <image class="tui-chatroom-navigatorbar-back" bindtap="goBack" src="../../static/assets/ic_back_white.svg" />
     <!-- 先查 remark；无 remark 查 (c2c)nick/(group)name；最后查 (c2c)userID/(group)groupID -->
+
     <view class="consultant-info">
+      <view class="counsultant-info-left">
+        <image class="counsultant-avatar" src="https://sdk-web-1252463788.cos.ap-hongkong.myqcloud.com/component/TUIKit/assets/avatar_21.png" />
+      </view>
+      <view class="counsultant-info-middle">
+        <view class="counsultant-info-text">{{conversationName}}</view>
+        <view class="counsultant-info-text">正在咨询中</view>
+        <view class="counsultant-info-text">{{h}}:{{m}}:{{s}}</view>
+      </view>
+      <view class="btn">
+        <button type="primary" size="mini" bindtap="goEvaluate">结束咨询</button>
+        <button type="primary" size="mini">发送记录</button>
+      </view>
     </view>
-    <view class="conversation-title">{{conversationName}}</view>
   </view>
 
   <view class="group-profile">
