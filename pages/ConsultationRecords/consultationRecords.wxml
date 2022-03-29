@@ -12,9 +12,10 @@
         <!-- 咨询师列表 -->
         <view class="consultant" wx:for="{{dataList}}" wx:key="i">
           <checkbox-group bindchange="checkboxChange" data-id="{{item.id}}">
-            <checkbox value="{{item.id}}" style="float:left;" checked='{{item.    checked}}'></checkbox>
+            <checkbox value="{{item.id}}" style="float:left;" checked='{{item.checked}}'></checkbox>
           </checkbox-group>
-          <text style="float:left">{{item.id}}</text>
+          <text style="padding:1.5px; float:left">{{item.id}}</text>
+          <text style="padding:1.5px; float:right">{{item.date}}</text>
         </view>
       </view>
 

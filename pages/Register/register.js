@@ -76,16 +76,16 @@ Page({
       });
     } else {
       wx.request({
-        // url: 'http://1.15.129.51:3000/users/wx/visitor',
-        url: 'http://127.0.0.1:4523/mock/738059/users/wx/visitor', //mock接口地址
+        url: 'http://1.15.129.51:3000/users/wx/visitor',
+        // url: 'http://127.0.0.1:4523/mock/738059/users/wx/visitor', //mock接口地址
         method: 'POST',
         data: {
           "user_name": userName,
           "visitor_phone": phone,
           "user_password": password,
-          "role": "visitor",
-          "visitor_name": null,
-          "visitor_gender": null
+          // "role": "visitor",
+          // "visitor_name": null,
+          // "visitor_gender": null
         },
         success: (res) => {
           console.log("----注册-----", res);
