@@ -1,11 +1,11 @@
 <view class="appointment-page" wx:for="{{counselerList}}" wx:key="index" data-item="{{item}}">
-  <view class="appointment-list-card" wx:if="{{item.status === 0}}" data-counseler-userName="{{item.name}}" bindtap="goWaitingList">
+  <view class="appointment-list-card" wx:if="{{item.coun_status == 'busy'}}" data-counseler-userName="{{item.coun_name}}" bindtap="goWaitingList">
     <view class="counseler-list-left">
-      <image class="counseler-avatar" src="{{item.avatarUrl}}" />
+      <image class="counseler-avatar" src="{{item.coun_avatar || defaultAvatarUrl}}" />
     </view>
     <view class="counseler-list-middle">
-      <view class="counseler-information-text">咨询师：{{item.name}}</view>
-      <view class="counseler-information-text">综合评价：{{item.averageScore}} / 5</view>
+      <view class="counseler-information-text">咨询师：{{item.coun_name}}</view>
+      <view class="counseler-information-text">综合评价：{{item.coun_avg_score}} / 5</view>
     </view>
     <view class="counseler-list-right">
       <view class="counseler-list-status-busy">
@@ -14,13 +14,13 @@
       </view>
     </view>
   </view>
-  <view class="appointment-list-card" wx:else data-counseler-userName="{{item.name}}" bindtap="makeAppointment">
+  <view class="appointment-list-card" wx:elif="{{item.coun_status == 'free'}}" data-counseler-userName="{{item.coun_name}}" bindtap="makeAppointment">
     <view class="counseler-list-left">
-      <image class="counseler-avatar" src="{{item.avatarUrl}}" />
+      <image class="counseler-avatar" src="{{item.coun_avatar || defaultAvatarUrl}}" />
     </view>
     <view class="counseler-list-middle">
-      <view class="counseler-information-text">咨询师：{{item.name}}</view>
-      <view class="counseler-information-text">综合评价：{{item.averageScore}} / 5</view>
+      <view class="counseler-information-text">咨询师：{{item.coun_name}}</view>
+      <view class="counseler-information-text">综合评价：{{item.coun_avg_score}} / 5</view>
     </view>
     <view class="counseler-list-right">
       <view class="counseler-list-status-free">
