@@ -64,7 +64,7 @@
   display: block;
   height: 80%;
   align-items: center;
-  max-height: 480rpx;
+  max-height: 80%;
   padding: 12px;
   background: rgba(0,0,0,0);
   }
@@ -77,33 +77,19 @@
   margin-top: 10rpx;
   padding: 24rpx;
 }
-.selectAll{
-  width: 95%;
-  height:54rpx;
-  margin:15rpx 10rpx 25rpx 15rpx;
-  padding: 25rpx 0 0 34rpx;
-}
-.exportBtn { 
-  width: 45% !important; 
-  float: left;
-  font-size: 14pt !important;
-  font-weight: normal;
-  color: #ffffff;
-  background: rgba(0,110,255,1);
- }
+
  .sendBtn { 
-  width: 45% !important;
-  float: right;
+  width: 80%;
   font-size: 14pt !important;
   font-weight: normal;
   color: #ffffff;
   background: rgba(0,110,255,1);
  }
 .Button{
-  bottom: 30rpx; 
+  bottom: 25rpx; 
   position: absolute;
   width: 80%;
-  height: 60rpx;
+  height: 8%;
   padding: 13px;
 }
 

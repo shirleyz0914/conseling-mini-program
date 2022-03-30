@@ -1,0 +1,29 @@
+<view class="container">
+  <image class="background-image" src="../../static/assets/background.svg" />
+  <view class="counter-warp">
+    <view class="header-content">
+      <view class="text">
+        <view class="text-header">查看咨询记录</view>
+      </view>
+    </view>
+
+    <view class="box">
+      <view class="consultant-box" disabled='true' style="overflow-y:auto;overflow-x:scroll;" selectable="true">
+        <!-- 咨询师列表 -->
+        <view class="consultant" wx:for="{{dataList}}" wx:key="i">
+          <checkbox-group bindchange="checkboxChange" data-id="{{item.id}}">
+            <checkbox value="{{item.id}}" style="float:left;" checked='{{item.checked}}'></checkbox>
+          </checkbox-group>
+          <text style="padding:1.5px; float:left">{{item.id}}</text>
+          <text style="padding:1.5px; float:right">{{item.date}}</text>
+        </view>
+      </view>
+
+      <view class='Button'>
+        <button class="sendBtn" bind:tap='send'>查看</button>
+      </view>
+
+    </view>
+
+  </view>
+</view>

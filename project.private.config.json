@@ -20,8 +20,8 @@
           "scene": null
         },
         {
-          "name": "选择咨询记录",
-          "pathName": "pages/ConsultationRecords/consultationRecords",
+          "name": "查看咨询记录",
+          "pathName": "pages/CheckConsultRecords/checkConsultRecords",
           "query": "",
           "launchMode": "default",
           "scene": null
@@ -78,6 +78,13 @@
         {
           "name": "聊天页面",
           "pathName": "TUI-CustomerService/pages/TUI-Chat/chat",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "导出咨询记录",
+          "pathName": "pages/ExportConsultRecords/exportConsultRecords",
           "query": "",
           "scene": null,
           "launchMode": "default"

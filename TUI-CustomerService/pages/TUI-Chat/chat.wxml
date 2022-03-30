@@ -1,7 +1,6 @@
 <view class="container">
   <TUI-calling class="calling" id="tui-calling" config="{{config}}" bind:sendMessage="sendMessage"></TUI-calling>
   <view class="tui-chatroom-navigatorbar">
-    <image class="tui-chatroom-navigatorbar-back" bindtap="goBack" src="../../static/assets/ic_back_white.svg" />
     <!-- 先查 remark；无 remark 查 (c2c)nick/(group)name；最后查 (c2c)userID/(group)groupID -->
 
     <view class="consultant-info">

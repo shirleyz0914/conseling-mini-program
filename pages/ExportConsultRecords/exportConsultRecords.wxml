@@ -3,7 +3,7 @@
   <view class="counter-warp">
     <view class="header-content">
       <view class="text">
-        <view class="text-header">选择咨询记录</view>
+        <view class="text-header">导出咨询记录</view>
       </view>
     </view>
 
@@ -26,7 +26,6 @@
 
       <view class='Button'>
         <button class="exportBtn" bind:tap='export'>导出</button>
-        <button class="sendBtn" bind:tap='send'>发送</button>
       </view>
 
     </view>

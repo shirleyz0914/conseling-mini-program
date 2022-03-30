@@ -42,6 +42,8 @@ Component({
         score,
       });
     },
+   
+
     sendMessage() {
       this.triggerEvent('sendCustomMessage', {
         payload: {
@@ -53,29 +55,43 @@ Component({
           }),
         },
       });
-      this.setData({
-        score: 0,
-      });
       this.handleClose();
 
-      wx.showModal({
-        title: '感谢您的评价！',
-        showCancel: false,
-        success: function(res) {
-            wx.switchTab({
-              url: '/pages/Index/index',
-            })
-          }
-        })
-
-    },
+      const counID = wx.getStorageSync('coun_id');
+      const userID = wx.getStorageSync('visitor_id');
+      const {score} = this.data; //解构score
+      wx.request({
+        url: 'http://1.15.129.51:3000/wx-users/addFeedbackScore',
+        method: "PUT",
+        data: {
+          "visitor_id": userID,
+          "coun_id": counID,
+          "score": score,
+      },
+         success: (res) => {
+           if(res.statusCode === 200){
+             if(res.data.Code === 0){
+               
+              wx.showModal({
+                title: '感谢您的评价！',
+                showCancel: false,
+                success: function(res) {
+                    wx.switchTab({
+                      url: '/pages/Index/index',
+                    })
+                  }
+                })
+             }
+           }
+      },
+    })
   },
 
   pageLifetimes: {
     show() {
-      this.setData({
-        score: 0,
-      });
+        
     },
-  },
-});
+  }
+},
+})
+

@@ -137,26 +137,7 @@ Page({
       this.TRTCCalling.call(event.detail);
     }
   },
-  goBack() {
-    // eslint-disable-next-line no-undef
-    const pages = getCurrentPages(); // 当前页面栈
-    if (pages[pages.length - 2].route === 'pages/TUI-Conversation/create-conversation/create'
-      || pages[pages.length - 2].route === 'pages/TUI-Group/create-group/create'
-      || pages[pages.length - 2].route === 'pages/TUI-Group/join-group/join') {
-      wx.navigateBack({
-        delta: 2,
-      });
-    } else {
-      wx.navigateBack({
-        delta: 1,
 
-      });
-    }
-    this.TRTCCalling.destroyed();
-    wx.$TUIKit.setMessageRead({
-      conversationID: this.data.conversationID,
-    }).then(() => {});
-  },
   changeMemberCount(event) {
     this.selectComponent('#group-profile').updateMemberCount(event.detail.groupOptionsNumber);
   },
