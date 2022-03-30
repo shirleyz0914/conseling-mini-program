@@ -8,7 +8,9 @@ ECNU-SEI-COURSE-PROJECT
 
 社会心理服务热线平台-小程序端
 
-Developed by：张灏琪、陈怡翃
+### Developed by：
+小程序前端：张灏琪、陈怡翃；
+小程序后端：王睿珺、张灏琪。
 
 
 ## Milestones
