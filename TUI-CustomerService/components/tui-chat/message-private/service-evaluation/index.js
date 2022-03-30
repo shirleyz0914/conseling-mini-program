@@ -42,6 +42,8 @@ Component({
         score,
       });
     },
+   
+
     sendMessage() {
       this.triggerEvent('sendCustomMessage', {
         payload: {
@@ -57,27 +59,29 @@ Component({
         score: 0,
       });
       this.handleClose();
+      // debugger
+      // const user_name = wx.getStorageSync('token').userInfo.userID;
+      // wx.request({
+      //   url: 'http://1.15.129.51:3000/wx-users/getVisitorInfo',
+      //   method: "GET",
+      //   data: {
+      //     "user_name" :  user_name,
+      //   },
+      //   success: (res) => {
+      //     if(res.statusCode === 200){
+      //       if(res.data.code===0){
+      //         this.setData({
+      //           userID : res.data.VisitorInfo.user_id,
+      //           score: 0
+      //         })
+      //       }
+      //     }
+      //   }
+      // })
 
-      var userID;
-      const user_name = wx.getStorage('token').userInfo.userID;
-      const counID = 4;
-      wx.request({
-        url: 'http://1.15.129.51:3000/wx-users/getVisitorInfo',
-        method: "GET",
-        data: {
-          "user_name" :  user_name,
-        },
-        success: (res) => {
-          if(res.statusCode === 200){
-            if(res.data.code===0){
-                userID = res.data.VisitorInfo.user_id;
-            }
-          }
-          console.log(res);
-        }
-
-      })
-
+      const counID = wx.getStorageSync('coun_id');
+      const userID = wx.getStorageSync(' visitor_id ');
+      const {score} = this.data;
       wx.request({
         url: 'http://1.15.129.51:3000/wx-users/addFeedbackScore',
         method: "PUT",
@@ -88,7 +92,8 @@ Component({
       },
          success: (res) => {
            if(res.statusCode === 200){
-             if(res.data.code === 0){
+             if(res.data.Code === 0){
+               
               wx.showModal({
                 title: '感谢您的评价！',
                 showCancel: false,
@@ -106,9 +111,9 @@ Component({
 
   pageLifetimes: {
     show() {
-      this.setData({
-        score: 0,
-      });
+        
     },
   }
-}
+},
+})
+
