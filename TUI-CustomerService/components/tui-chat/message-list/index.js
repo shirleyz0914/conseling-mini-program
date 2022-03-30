@@ -398,6 +398,9 @@ Component({
         });
       }
     },
+    handleScroll(){
+
+    },
     // 滑动到最底部置跳转事件为false
     scrollHandler() {
       this.setData({

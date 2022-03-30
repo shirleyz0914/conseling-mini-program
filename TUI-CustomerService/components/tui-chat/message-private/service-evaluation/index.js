@@ -53,11 +53,21 @@ Component({
           }),
         },
       });
-
       this.setData({
         score: 0,
       });
       this.handleClose();
+
+      wx.showModal({
+        title: '感谢您的评价！',
+        showCancel: false,
+        success: function(res) {
+            wx.switchTab({
+              url: '/pages/Index/index',
+            })
+          }
+        })
+
     },
   },
 
