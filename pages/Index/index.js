@@ -116,7 +116,7 @@ Page({
     if (status === "offline" || status === undefined) {
       wx.showToast({
         title: '该咨询师目前不在线，无法提供服务。',
-        icon: none,
+        icon: 'none',
         duration: 2000,
       });
     } else if (status === "free") {
