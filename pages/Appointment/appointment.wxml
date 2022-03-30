@@ -1,5 +1,5 @@
 <view class="appointment-page" wx:for="{{counselerList}}" wx:key="index" data-item="{{item}}">
-  <view class="appointment-list-card" wx:if="{{item.coun_status == 'busy'}}" data-counseler-userName="{{item.coun_name}}" bindtap="goWaitingList">
+  <view class="appointment-list-card" wx:if="{{item.coun_status == 'busy'}}" data-counseler-userName="{{item.coun_name}}" data-counid="{{item.coun_id}}" bindtap="goWaitingList">
     <view class="counseler-list-left">
       <image class="counseler-avatar" src="{{item.coun_avatar || defaultAvatarUrl}}" />
     </view>
@@ -14,7 +14,7 @@
       </view>
     </view>
   </view>
-  <view class="appointment-list-card" wx:elif="{{item.coun_status == 'free'}}" data-counseler-userName="{{item.coun_name}}" bindtap="makeAppointment">
+  <view class="appointment-list-card" wx:elif="{{item.coun_status == 'free'}}" data-counseler-userName="{{item.coun_name}}" data-counid="{{item.coun_id}}" bindtap="makeAppointment">
     <view class="counseler-list-left">
       <image class="counseler-avatar" src="{{item.coun_avatar || defaultAvatarUrl}}" />
     </view>

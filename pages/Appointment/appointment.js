@@ -31,7 +31,9 @@ Page({
     const payloadData = {
       conversationID: `C2C${event.currentTarget.dataset.counselerUsername}`,
     };
+    const coun_id = event.currentTarget.dataset.counid;
     wx.setStorageSync('payloadData', payloadData);
+    wx.setStorageSync('coun_id', coun_id);
     console.log("----预约-----", payloadData);
     wx.navigateTo({
       url: `../SignConsent/signConsent`,

@@ -41,6 +41,19 @@ Page({
   },
   onLoad() {
     this.queryTime();
+    // this.getCounsellerStatus();
+  },
+  getCounsellerStatus() {
+    wx.request({
+      url: 'http://1.15.129.51:3000/wx-users/schedule/getCounsellorStatus',
+      method: 'GET',
+      data: {
+        coun_id: 4
+      },
+      success: (res) => {
+        console.log("------status:", res);
+      }
+    })
   },
   goCancel() {
     console.log("-----取消咨询------");
