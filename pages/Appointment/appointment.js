@@ -2,18 +2,30 @@ import logger from '../../utils/logger';
 
 const app = getApp();
 
-// status: 0 - busy/unavailable, 1 - free/available
-const defaultCounselerList = [
-  { "id": 1, "name": "Counseler1", "avatarUrl": "https://sdk-web-1252463788.cos.ap-hongkong.myqcloud.com/component/TUIKit/assets/avatar_21.png", "averageScore": 4.5, "status": 0 },
-  { "id": 2, "name": "ss", "avatarUrl": "https://sdk-web-1252463788.cos.ap-hongkong.myqcloud.com/component/TUIKit/assets/avatar_21.png", "averageScore": 4.3, "status": 1 },
-  { "id": 3, "name": "zhqtest", "avatarUrl": "https://sdk-web-1252463788.cos.ap-hongkong.myqcloud.com/component/TUIKit/assets/avatar_21.png", "averageScore": 4.8, "status": 1 }
-];
-
-
 Page({
   data: {
-    counselerList: defaultCounselerList,
+    counselerList: [],
+    defaultAvatarUrl: "https://sdk-web-1252463788.cos.ap-hongkong.myqcloud.com/component/TUIKit/assets/avatar_21.png",
     choseCounseler: ''
+  },
+  onLoad() {
+    this.getCounsellorList();
+  },
+  getCounsellorList() {
+    wx.request({
+      url: 'http://1.15.129.51:3000/wx-users/getCounsellorList',
+      method: 'GET',
+      success: (res) => {
+        if (res.statusCode === 200) {
+          if (res.data.code === 0) {
+            this.setData({
+              counselerList: res.data.counsellorList
+            });
+            console.log("---咨询师信息加载完毕---");
+          }
+        }
+      }
+    })
   },
   makeAppointment(event) {
     const payloadData = {
