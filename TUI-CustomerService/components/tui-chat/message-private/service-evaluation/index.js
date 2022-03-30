@@ -55,33 +55,11 @@ Component({
           }),
         },
       });
-      this.setData({
-        score: 0,
-      });
       this.handleClose();
-      // debugger
-      // const user_name = wx.getStorageSync('token').userInfo.userID;
-      // wx.request({
-      //   url: 'http://1.15.129.51:3000/wx-users/getVisitorInfo',
-      //   method: "GET",
-      //   data: {
-      //     "user_name" :  user_name,
-      //   },
-      //   success: (res) => {
-      //     if(res.statusCode === 200){
-      //       if(res.data.code===0){
-      //         this.setData({
-      //           userID : res.data.VisitorInfo.user_id,
-      //           score: 0
-      //         })
-      //       }
-      //     }
-      //   }
-      // })
 
       const counID = wx.getStorageSync('coun_id');
-      const userID = wx.getStorageSync(' visitor_id ');
-      const {score} = this.data;
+      const userID = wx.getStorageSync('visitor_id');
+      const {score} = this.data; //解构score
       wx.request({
         url: 'http://1.15.129.51:3000/wx-users/addFeedbackScore',
         method: "PUT",
