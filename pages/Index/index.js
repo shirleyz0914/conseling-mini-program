@@ -64,11 +64,12 @@ Page({
             const consultList = res.data.consultList;
             const consultHistory = this.data.counselHistoryList;
             for (var i = 0; i < consultList.length; i++) {
-              const { coun_id, coun_name, begin_time, period, score} = consultList[i];
+              const { coun_id, coun_name, coun_status, begin_time, period, score} = consultList[i];
               const std_begin_time = new Date(begin_time);
               const consultRecord = {
                 id: coun_id,
                 name: coun_name,
+                status: coun_status,
                 avatarUrl: "https://sdk-web-1252463788.cos.ap-hongkong.myqcloud.com/component/TUIKit/assets/avatar_21.png",
                 time: std_begin_time.toLocaleString('chinese', {hour12: false}),
                 period: period,
@@ -78,7 +79,6 @@ Page({
               this.setData({
                 counselHistoryList: consultHistory,
               });
-              console.log("===",this.data.counselHistoryList);
             }
           }
         }
@@ -102,6 +102,28 @@ Page({
     wx.navigateTo({
       url: '../Profile/profile',
     })
+  },
+  goRecounsult(event){
+    const payloadData = {
+      conversationID: `C2C${event.currentTarget.dataset.item.name}`,
+    };
+    const status = event.currentTarget.dataset.item.status;
+    if (status === "offline" || status === undefined) {
+      wx.showToast({
+        title: '该咨询师目前不在线，无法提供服务。',
+        duration: 2000,
+      });
+    } else if (status === "free") {
+      wx.setStorageSync('payloadData', payloadData);
+      wx.navigateTo({
+        url: `../SignConsent/signConsent`,
+      })
+    } else if (status === "busy") {
+      wx.setStorageSync('payloadData', payloadData);
+      wx.navigateTo({
+        url: `../WaitList/waitList`,
+      })
+    }
   },
   // 退出登陆
   quit() {
