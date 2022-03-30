@@ -25,8 +25,8 @@
       </checkbox-group>
 
       <view class='Button'>
-        <button class="exportBtn" bind:tap='goRegister'>导出</button>
-        <button class="sendBtn" bind:tap='login'>发送</button>
+        <button class="exportBtn" bind:tap='export'>导出</button>
+        <button class="sendBtn" bind:tap='send'>发送</button>
       </view>
 
     </view>
