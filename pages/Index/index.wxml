@@ -16,7 +16,7 @@
       <text class="start-to-counsel">点击此处，立即在线咨询</text>
     </view>
     <scroll-view class="history-section" scroll-y="true">
-      <view class="counsel-history-card" wx:for="{{counselHistoryList}}" wx:key="index" data-item="{{item}}" bindtap="">
+      <view class="counsel-history-card" wx:for="{{counselHistoryList}}" wx:key="index" data-item="{{item}}" bindtap="goRecounsult">
         <view class="history-card-header">
           <view class="consel-time">{{item.time}}</view>
           <image class="detail-icon" src="../../static/assets/detail.svg" />
