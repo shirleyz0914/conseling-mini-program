@@ -69,16 +69,16 @@ Page({
             const consultList = res.data.consultList;
             const consultHistory = this.data.counselHistoryList;
             for (var i = 0; i < consultList.length; i++) {
-              const { coun_id, coun_name, coun_status, begin_time, period, score} = consultList[i];
+              const { coun_id, coun_name, coun_status, coun_avatar, begin_time, period, score } = consultList[i];
               const std_begin_time = new Date(begin_time);
               const consultRecord = {
                 id: coun_id,
                 name: coun_name,
                 status: coun_status,
-                avatarUrl: "https://sdk-web-1252463788.cos.ap-hongkong.myqcloud.com/component/TUIKit/assets/avatar_21.png",
+                avatarUrl: coun_avatar || "https://sdk-web-1252463788.cos.ap-hongkong.myqcloud.com/component/TUIKit/assets/avatar_21.png",
                 time: std_begin_time.toLocaleString('chinese', {hour12: false}),
-                period: period,
-                score: score
+                period,
+                score
               };
               consultHistory.push(consultRecord);
               this.setData({
