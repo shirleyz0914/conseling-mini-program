@@ -40,10 +40,12 @@ Page({
         if (res.statusCode === 200) {
           if (res.data.code === 0) {
             const { 
+              user_id,
               user_name,
               visitor_phone,
               visitor_avatar,
             } = res.data.visitorInfo;
+            wx.setStorageSync('visitor_id', user_id);
             this.setData({
               nickName: user_name,
               phoneNumber: visitor_phone || '',
