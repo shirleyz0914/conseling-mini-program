@@ -117,12 +117,14 @@ Page({
             } else {
               wx.showToast({
                 title: '系统异常，请稍后重试。',
+                icon: 'none',
                 duration: 2000
               })
             }
           } else {
             wx.showToast({
               title: '系统异常，请稍后重试。',
+              icon: 'none',
               duration: 2000
             })
           }
