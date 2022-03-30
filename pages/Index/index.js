@@ -114,7 +114,7 @@ Page({
     const payloadData = {
       conversationID: `C2C${event.currentTarget.dataset.item.name}`,
     };
-    const status = event.currentTarget.dataset.item.status;
+    const {id, status} = event.currentTarget.dataset.item;
     if (status === "offline" || status === undefined) {
       wx.showToast({
         title: '该咨询师目前不在线，无法提供服务。',
@@ -122,14 +122,16 @@ Page({
         duration: 2000,
       });
     } else if (status === "free") {
+      wx.setStorageSync('coun_id', id);
       wx.setStorageSync('payloadData', payloadData);
       wx.navigateTo({
         url: `../SignConsent/signConsent`,
       })
     } else if (status === "busy") {
+      wx.setStorageSync('coun_id', id);
       wx.setStorageSync('payloadData', payloadData);
       wx.navigateTo({
-        url: `../WaitList/waitList`,
+        url: `../WaitList/waitList?counInfo=${JSON.stringify(event.currentTarget.dataset.item)}`,
       })
     }
   },
