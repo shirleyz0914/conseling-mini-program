@@ -12,26 +12,18 @@
   height: 480rpx;
   background-color: #006EFF;
 }
-
-.tui-chatroom-navigatorbar-back{
-    margin: 50rpx 40rpx;
-    width: 60rpx;
-    height: 60rpx;
-}
 .consultant-info{
-  width: 90%;
-  height: 17vh;
+  width: 89%;
+  height: 300rpx;
   position: relative;
   background: #ffffff;
-  border-radius: 4px;
-  border-radius: 4px;
+  border-radius: 8px;
   display: flex;
   flex-direction: row;
-  justify-content: left;
-  margin: 0 20px;
+  margin: 140rpx 40rpx 0 40rpx;
 }
 .counsultant-info-left{
-  margin: 48rpx;
+  margin: 85rpx 40rpx;
   width: 150rpx;
 }
 .counsultant-avatar {
@@ -43,10 +35,10 @@
   display: flex;
   flex-direction: column;
   width: 80%;
-  margin: 18rpx 0;
+  margin: 45rpx 10rpx;
 }
 .counsultant-info-text {
-  font-size: 30rpx;
+  font-size: 35rpx;
   margin-top: 18rpx;
 }
 
@@ -55,7 +47,7 @@ button{
   margin-bottom: 15px;
 }
 .btn {
-  margin:  18px 100px;
+  margin:  70rpx 195rpx;
   width: 100%;
   display: flex;
   flex-direction: column;

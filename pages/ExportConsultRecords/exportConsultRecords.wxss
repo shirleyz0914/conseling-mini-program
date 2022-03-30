@@ -1,0 +1,101 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  background-color: #F4F5F9;
+}
+
+.counter-warp {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.background-image {
+  width: 100%;
+}
+
+.header-content {
+  display: flex;
+  width: 100vw;
+  padding: 40px 20px;
+  box-sizing: border-box;
+  top: 100rpx;
+  align-items: center;
+}
+
+.header-content > image {
+  width: 128px;
+  height: 84px;
+}
+.header-content > .icon {
+  width: 76px;
+  height: 50px;
+}
+.text{
+  text-align: left;
+  padding-left: 40rpx;
+}
+.text-header{
+  height: 72rpx;
+  font-size: 48rpx;
+  line-height: 72rpx;
+  color: #FFFFFF;
+}
+.box{
+  width: 80%;
+  height: 65vh;
+  position: relative;
+  background: #ffffff;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  padding: 30px 20px ;
+}
+.consultant-box {
+  width: 88%;
+  justify-content: center;
+  display: block;
+  height: 80%;
+  align-items: center;
+  max-height: 72%;
+  padding: 12px;
+  background: rgba(0,0,0,0);
+  }
+.consultant{
+  width: 95%;
+  height: 52rpx;
+  background: #efeff4;
+  /*border: 1px solid black;*/
+  border-radius: 10rpx;
+  margin-top: 10rpx;
+  padding: 24rpx;
+}
+.selectAll{
+  width: 95%;
+  height: 52rpx;
+  margin:15rpx 10rpx 25rpx 15rpx;
+  padding: 25rpx 0 0 34rpx;
+}
+.exportBtn { 
+  width: 80%; 
+  font-size: 14pt !important;
+  font-weight: normal;
+  color: #ffffff;
+  background: rgba(0,110,255,1);
+ }
+.Button{
+  bottom: 25rpx; 
+  position: absolute;
+  width: 80%;
+  height: 8%;
+  padding: 13px;
+}
+
+

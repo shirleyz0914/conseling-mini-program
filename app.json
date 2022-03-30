@@ -2,7 +2,8 @@
   "pages": [
     "pages/Index/index",
     "pages/Appointment/appointment",
-    "pages/ConsultationRecords/consultationRecords",
+    "pages/ExportConsultRecords/exportConsultRecords",
+    "pages/CheckConsultRecords/checkConsultRecords",
     "pages/Login/login",
     "pages/Profile/profile",
     "pages/Register/register",
@@ -33,7 +34,7 @@
         "iconPath": "./static/images/dialog-icon.png"
       },
       {
-        "pagePath": "pages/ConsultationRecords/consultationRecords",
+        "pagePath": "pages/CheckConsultRecords/checkConsultRecords",
         "text": "咨询记录",
         "iconPath": "./static/images/record-icon.png"
       }

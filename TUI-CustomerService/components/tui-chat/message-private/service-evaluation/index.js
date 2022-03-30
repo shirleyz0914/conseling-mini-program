@@ -58,17 +58,50 @@ Component({
       });
       this.handleClose();
 
-      wx.showModal({
-        title: '感谢您的评价！',
-        showCancel: false,
-        success: function(res) {
-            wx.switchTab({
-              url: '/pages/Index/index',
-            })
+      var userID;
+      const user_name = wx.getStorage('token').userInfo.userID;
+      const counID = 4;
+      wx.request({
+        url: 'http://1.15.129.51:3000/wx-users/getVisitorInfo',
+        method: "GET",
+        data: {
+          "user_name" :  user_name,
+        },
+        success: (res) => {
+          if(res.statusCode === 200){
+            if(res.data.code===0){
+                userID = res.data.VisitorInfo.user_id;
+            }
           }
-        })
+          console.log(res);
+        }
 
-    },
+      })
+
+      wx.request({
+        url: 'http://1.15.129.51:3000/wx-users/addFeedbackScore',
+        method: "PUT",
+        data: {
+          "visitor_id": userID,
+          "coun_id": counID,
+          "score": score,
+      },
+         success: (res) => {
+           if(res.statusCode === 200){
+             if(res.data.code === 0){
+              wx.showModal({
+                title: '感谢您的评价！',
+                showCancel: false,
+                success: function(res) {
+                    wx.switchTab({
+                      url: '/pages/Index/index',
+                    })
+                  }
+                })
+             }
+           }
+      },
+    })
   },
 
   pageLifetimes: {
@@ -77,5 +110,5 @@ Component({
         score: 0,
       });
     },
-  },
-});
+  }
+}
