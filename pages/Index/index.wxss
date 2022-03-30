@@ -185,18 +185,20 @@
   margin-left: 80rpx;
   border-bottom: solid 1rpx #d1d1d1;
   display: flex;
+  justify-content: space-between;
   padding-bottom: 6rpx;
   flex-direction: row;
 }
 .consel-time {
   padding-top: 12rpx;
   font-size: 24rpx;
+  width: 240rpx;
 }
 .detail-icon {
   width: 32rpx;
   height: 32rpx;
   padding-top: 12rpx;
-  margin-left: calc(100vw - 450rpx);
+  transform: translateX(-60rpx);
 }
 .history-card-main{
   position: relative;

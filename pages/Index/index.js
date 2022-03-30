@@ -5,19 +5,14 @@ import logger from '../../utils/logger';
 const app = getApp();
 const defaultNickName = 'ss';
 const defaultPhoneNumber = '13012876102';
-const defaultConselHistoryList = [
-  { id: '1', name: '咨询师1', avatarUrl: "https://sdk-web-1252463788.cos.ap-hongkong.myqcloud.com/component/TUIKit/assets/avatar_21.png", time: '2022/01/24 13:35:00', period: '01小时23分钟', score: 5 },
-  { id: '2', name: '咨询师2', avatarUrl: "https://sdk-web-1252463788.cos.ap-hongkong.myqcloud.com/component/TUIKit/assets/avatar_21.png", time: 'YYYY/MM/DD HH:MM:SS', period: 'xx小时XX分钟', score: 4 },
-  { id: '3', name: '咨询师3', avatarUrl: "https://sdk-web-1252463788.cos.ap-hongkong.myqcloud.com/component/TUIKit/assets/avatar_21.png", time: 'YYYY/MM/DD HH:MM:SS', period: 'xx小时XX分钟', score: 5},
-  { id: '4', name: '咨询师4', avatarUrl: "https://sdk-web-1252463788.cos.ap-hongkong.myqcloud.com/component/TUIKit/assets/avatar_21.png", time: 'YYYY/MM/DD HH:MM:SS', period: 'xx小时XX分钟', score: 5},
-];
+
 // eslint-disable-next-line no-undef
 Page({
   /**
    * 页面的初始数据
    */
   data: {
-    counselHistoryList: null,
+    counselHistoryList: [],
     nickName: null,
     phoneNumber: null,
     numberShow: null,
@@ -27,7 +22,6 @@ Page({
    */
   onLoad() {
     this.checkLoginStatus();
-    this.getVisitorInfo();
   },
   getVisitorInfo(){
     const user_name = wx.getStorageSync('token').userInfo.userID;
@@ -56,6 +50,41 @@ Page({
       }
     })
   },
+  getConsultList() {
+    const user_name = wx.getStorageSync('token').userInfo.userID;
+    wx.request({
+      url: 'http://1.15.129.51:3000/wx-users/record/getConsultList',
+      method: 'GET',
+      data: {
+        "user_name": user_name,
+      },
+      success: (res) => {
+        if (res.statusCode === 200) {
+          if (res.data.code === 0) {
+            const consultList = res.data.consultList;
+            const consultHistory = this.data.counselHistoryList;
+            for (var i = 0; i < consultList.length; i++) {
+              const { coun_id, coun_name, begin_time, period, score} = consultList[i];
+              const std_begin_time = new Date(begin_time);
+              const consultRecord = {
+                id: coun_id,
+                name: coun_name,
+                avatarUrl: "https://sdk-web-1252463788.cos.ap-hongkong.myqcloud.com/component/TUIKit/assets/avatar_21.png",
+                time: std_begin_time.toLocaleString('chinese', {hour12: false}),
+                period: period,
+                score: score
+              };
+              consultHistory.push(consultRecord);
+              this.setData({
+                counselHistoryList: consultHistory,
+              });
+              console.log("===",this.data.counselHistoryList);
+            }
+          }
+        }
+      }
+    })
+  },
   checkLoginStatus() {
     let token = wx.getStorageSync('token');
     let isLogin = wx.getStorageSync('islogin');
@@ -64,12 +93,10 @@ Page({
       wx.redirectTo({
         url: '../Login/login',
       })
+    } else {
+      this.getVisitorInfo();
+      this.getConsultList();
     }
-  },
-  onShow() {
-    this.setData({
-      counselHistoryList: defaultConselHistoryList
-    })
   },
   eidtProfile() {
     wx.navigateTo({
