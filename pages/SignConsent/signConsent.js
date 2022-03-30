@@ -39,33 +39,28 @@ Page({
       userID: val,
     })
   },
-  // login() {
-  //   const userID = this.data.userID
-  //   const userSig = genTestUserSig(userID).userSig
-  //   logger.log(`TUI-login | login  | userSig:${userSig} userID:${userID}`)
-  //   app.globalData.userInfo = {
-  //     userSig,
-  //     userID,
-  //   }
-  //   if (this.data.path && this.data.path !== 'undefined') {
-  //     wx.redirectTo({
-  //       url: this.data.path,
-  //     })
-  //   } else {
-  //     wx.switchTab({
-  //       url: '../Index/index',
-  //     })
-  //   }
-  // },
   onAgreePrivateProtocol() {
     this.setData({
       privateAgree: !this.data.privateAgree,
     })
   },
   goCounseling() {
-    const payloadData = wx.getStorageSync('payloadData');
-    wx.navigateTo({
-      url: `../../TUI-CustomerService/pages/TUI-Chat/chat?conversationInfomation=${JSON.stringify(payloadData)}`,
-    })
+    const coun_id = wx.getStorageSync('coun_id');
+    wx.request({
+      url: 'http://1.15.129.51:3000/wx-users/changeCounsellorStauts',
+      method: 'PUT',
+      data: {
+        "coun_id": coun_id,
+        "coun_status": "busy"
+      },
+      success: (res) => {
+        if (res.statusCode === 200 && res.data.Code === 0) {
+          const payloadData = wx.getStorageSync('payloadData');
+          wx.navigateTo({
+            url: `../../TUI-CustomerService/pages/TUI-Chat/chat?conversationInfomation=${JSON.stringify(payloadData)}`,
+          })
+        } 
+      }
+    });
   }
 })
