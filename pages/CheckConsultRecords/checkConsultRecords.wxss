@@ -77,20 +77,17 @@
   margin-top: 10rpx;
   padding: 24rpx;
 }
-
- .sendBtn { 
-  width: 80%;
-  font-size: 14pt !important;
-  font-weight: normal;
-  color: #ffffff;
-  background: rgba(0,110,255,1);
- }
-.Button{
-  bottom: 25rpx; 
-  position: absolute;
-  width: 80%;
-  height: 8%;
-  padding: 13px;
+.tips{
+  width: 84%;
+  height: 52rpx;
+  background: #aeb0b8;
+  /*border: 1px solid black;*/
+  border-radius: 10rpx;
+  margin-top: 40rpx;
+  margin-left: 22rpx;
+  padding: 24rpx;
+  text-align: center;
 }
+
 
 

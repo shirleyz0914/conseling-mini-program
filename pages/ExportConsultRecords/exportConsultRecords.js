@@ -2,48 +2,7 @@ const app = getApp()
 
 Page({
   data: {
-    dataList:[
-      {
-        id:"咨询师-1",
-        date:"YYYY/MM/DD",
-        checked:false
-      },
-      {
-        id:"咨询师-2",
-        date:"YYYY/MM/DD",
-        checked:false
-      },
-      {
-        id:"咨询师-3",
-        date:"YYYY/MM/DD",
-        checked:false
-      },
-      {
-        id:"咨询师-4",
-        date:"YYYY/MM/DD",
-        checked:false
-      },
-      {
-        id:"咨询师-5",
-        date:"YYYY/MM/DD",
-        checked:false
-      },
-      {
-        id:"咨询师-6",
-        date:"YYYY/MM/DD",
-        checked:false
-      },
-      {
-        id:"咨询师-7",
-        date:"YYYY/MM/DD",
-        checked:false
-      },
-      {
-        id:"咨询师-8",
-        date:"YYYY/MM/DD",
-        checked:false
-      },
-    ], // 数据列表
+    dataList:[], // 咨询记录列表
     checkedIds:[], // 选中的id列表,
     checkedAll:false
   },
@@ -80,6 +39,43 @@ Page({
         dataList:this.data.dataList.map(item=>{item.checked = false;return item;})
       });
     }
+  },
+
+  onLoad() {
+    this.getConsultRecords();
+  },
+  getConsultRecords() {
+      const user_name = wx.getStorageSync('token').userInfo.userID;
+      wx.request({
+        url: 'http://1.15.129.51:3000/wx-users/record/getConsultList',
+        method: 'GET',
+        data:{
+          "user_name": user_name,
+        },
+
+        success: (res) => {
+          if(res.statusCode === 200){
+            if(res.data.code === 0){
+              const consultList = res.data.consultList;
+              const consultHistory = this.data.dataList;
+              for(var i=0; i<consultList.length; i++){
+                const{ coun_id, coun_name, begin_time} = consultList[i];
+                const std_time = new Date(begin_time);
+                const consultRecord = {
+                  id : coun_id,
+                  name : coun_name,
+                  time : std_time.toLocaleDateString(),
+                  checked : false,
+                };
+                consultHistory.push(consultRecord);
+              }
+              this.setData({
+                dataList : consultHistory,
+              })
+            }
+          }
+        }
+      })
   }
 
 })
