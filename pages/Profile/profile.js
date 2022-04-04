@@ -136,6 +136,18 @@ Page({
                 page.onLoad();
               }
             })
+          } else if (res.data.errCode === 11) {
+            wx.showModal({
+              title: '提示',
+              content: '请填写正确的手机号码。',
+              showCancel: false
+            })
+          } else if (res.data.errCode === 12) {
+            wx.showModal({
+              title: '提示',
+              content: '请填写真实姓名。',
+              showCancel: false
+            })
           }
         }
       }

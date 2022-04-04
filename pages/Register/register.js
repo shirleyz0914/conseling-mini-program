@@ -114,6 +114,12 @@ Page({
                 content: '用户名已存在，请重新填写',
                 showCancel: false
               })
+            } else if (res.data.errCode === 10) {
+              wx.showModal({
+                title: '提示',
+                content: '用户名只能由字母和下划线组成',
+                showCancel: false
+              })
             } else {
               wx.showToast({
                 title: '系统异常，请稍后重试。',

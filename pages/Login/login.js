@@ -88,6 +88,12 @@ Page({
               content: '用户名或密码错误，请再次确认。未注册用户请先完成注册。',
               showCancel: false
             })
+          } else if (res.data.errCode === 15) {
+            wx.showModal({
+              title: '提示',
+              content: '账户异常，已被禁用。',
+              showCancel: false
+            })
           } else {
             wx.showModal({
               title: '提示',
