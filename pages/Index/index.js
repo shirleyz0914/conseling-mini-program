@@ -73,13 +73,19 @@ Page({
             for (var i = 0; i < consultList.length; i++) {
               const { coun_id, coun_name, coun_status, coun_avatar, begin_time, period, score } = consultList[i];
               const std_begin_time = new Date(begin_time);
+              const t_h = Math.floor(period/60/60);
+              const t_m = Math.floor((period - t_h * 60 * 60) / 60);
+              const t_s = Math.floor(period - t_h * 60 * 60 - t_m * 60);
+              const h = t_h < 10 ? `0${t_h}` : `${t_h}`;
+              const m = t_m < 10 ? `0${t_m}` : `${t_m}`;
+              const s = t_s < 10 ? `0${t_s}` : `${t_s}`;
               const consultRecord = {
                 id: coun_id,
                 name: coun_name,
                 status: coun_status,
                 avatarUrl: coun_avatar || "https://sdk-web-1252463788.cos.ap-hongkong.myqcloud.com/component/TUIKit/assets/avatar_21.png",
                 time: std_begin_time.toLocaleString('chinese', {hour12: false}),
-                period,
+                period: h + ':' + m + ':' + s,
                 score
               };
               consultHistory.push(consultRecord);
