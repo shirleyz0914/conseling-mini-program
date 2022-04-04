@@ -61,7 +61,11 @@ Page({
   goEvaluate(){
     this.selectComponent('#message-input').handleServiceEvaluation();
   },
-
+  goSendRecords(){
+    wx.navigateTo({
+      url: `../../../pages/ExportConsultRecords/exportConsultRecords`,
+    })
+  },
 
   /**
    * 生命周期函数--监听页面加载

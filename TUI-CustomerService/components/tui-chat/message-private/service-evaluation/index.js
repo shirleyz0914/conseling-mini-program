@@ -56,7 +56,8 @@ Component({
         },
       });
       this.handleClose();
-
+      
+      //从缓存找到数据
       const counID = wx.getStorageSync('coun_id');
       const userID = wx.getStorageSync('visitor_id');
       const {score} = this.data; //解构score
