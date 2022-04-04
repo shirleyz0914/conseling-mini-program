@@ -45,6 +45,20 @@ Component({
    
 
     sendMessage() {
+      const coun_id = wx.getStorageSync('coun_id');
+      wx.request({
+        url: 'http://1.15.129.51:3000/wx-users/changeCounsellorStauts',
+        method: 'PUT',
+        data: {
+          "coun_id": coun_id,
+          "coun_status": "free"
+        },
+        success: (res) => {
+          if (res.statusCode === 200 && res.data.Code === 0) {
+            wx.removeStorageSync('coun_id');
+          } 
+        }
+      });
       this.triggerEvent('sendCustomMessage', {
         payload: {
           // data 字段作为表示，可以自定义
