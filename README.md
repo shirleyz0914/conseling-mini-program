@@ -8,6 +8,8 @@ ECNU-SEI-COURSE-PROJECT
 
 社会心理服务热线平台-小程序端
 
+因为并没有正式发布的打算，所以没有做合法request校验，用的是IP+端口，仅供模拟器使用。
+
 
 ### Developed by：
 小程序前端：张灏琪、陈怡翃；  
