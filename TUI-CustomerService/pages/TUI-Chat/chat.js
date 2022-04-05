@@ -85,7 +85,7 @@ Page({
       this.TRTCCalling.init();
     });
     // conversationID: C2C、 GROUP
-    logger.log(`| TUI-chat | onLoad | conversationInfomation: ${options.conversationInfomation}`);
+    // logger.log(`| TUI-chat | onLoad | conversationInfomation: ${options.conversationInfomation}`);
     const   payloadData = JSON.parse(options.conversationInfomation);
     const unreadCount = payloadData.unreadCount ? payloadData.unreadCount : 0;
     this.setData({

@@ -416,7 +416,10 @@ Component({
     messageTimeForShow(messageTime) {
       const interval = 5 * 60 * 1000;
       const nowTime = Math.floor(messageTime.time / 10) * 10 * 1000;
-      const lastTime = this.data.messageList.slice(-1)[0].time * 1000;
+      let lastTime = 0
+      if (this.data.messageList.slice(-1)[0] != undefined) {
+        lastTime = this.data.messageList.slice(-1)[0].time * 1000;
+      }
       if (nowTime  - lastTime > interval) {
         Object.assign(messageTime, {
           isShowTime: true,
@@ -452,14 +455,16 @@ Component({
     },
     // 拉取更多历史消息渲染时间
     showMoreHistoryMessageTime(messageList) {
-      const showHistoryTime = messageList[0].time * 1000;
-      Object.assign(messageList[0], {
-        isShowMoreHistoryTime: true,
-      });
-      this.data.newArr[messageList[0].ID] = dayjs(showHistoryTime).format('YYYY-MM-DD HH:mm:ss');
-      this.setData({
-        newArr: this.data.newArr,
-      });
+      if (messageList[0] != undefined) {
+        const showHistoryTime = messageList[0].time * 1000;
+        Object.assign(messageList[0], {
+          isShowMoreHistoryTime: true,
+        });
+        this.data.newArr[messageList[0].ID] = dayjs(showHistoryTime).format('YYYY-MM-DD HH:mm:ss');
+        this.setData({
+          newArr: this.data.newArr,
+        });
+      }
     },
     // 消息发送失败
     sendMessageError(event) {
