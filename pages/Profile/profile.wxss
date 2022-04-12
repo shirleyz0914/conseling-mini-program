@@ -83,6 +83,16 @@
   display: flex;
   align-items: center;
 }
+.radio-group{
+  display: flex;
+  flex: 1;
+}
+.radio-label {
+  display: flex;
+}
+.radio-name {
+  margin-right: 48rpx;
+}
 .input{
   padding: 10rpx 0;
   font-size: 16px;
