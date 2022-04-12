@@ -3,8 +3,8 @@ import logger from '../../utils/logger';
 
 // eslint-disable-next-line no-undef
 const app = getApp();
-const defaultNickName = 'ss';
-const defaultPhoneNumber = '13012876102';
+// const defaultNickName = 'ss';
+// const defaultPhoneNumber = '13012876102';
 
 // eslint-disable-next-line no-undef
 Page({

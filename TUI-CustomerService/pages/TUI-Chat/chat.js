@@ -59,7 +59,24 @@ Page({
     }, 1000)
   },
   goEvaluate(){
+    var times = Date.now();
+    var end_time = new Date(times).toLocaleString('chinese', {hour12: false}).replaceAll('/', '-');
+    const visitor_id = wx.getStorageSync('visitor_id');
+    const coun_id = wx.getStorageSync('coun_id');
+    const begin_time = wx.getStorageSync('begin_time');
     this.selectComponent('#message-input').handleServiceEvaluation();
+    wx.request({
+      url: 'http://1.15.129.51:3000/record',
+      method: 'POST',
+      data: {
+        "visitor_id": visitor_id,
+        "coun_id": coun_id,
+        "help_or_not": 0,
+        "sup_id": -1,
+        "begin_time": begin_time,
+        "end_time": end_time
+      }
+    })
   },
   goSendRecords(){
     wx.navigateTo({
