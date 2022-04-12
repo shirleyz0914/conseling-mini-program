@@ -56,6 +56,7 @@ Component({
         success: (res) => {
           if (res.statusCode === 200 && res.data.Code === 0) {
             wx.removeStorageSync('coun_id');
+            wx.removeStorageSync('begin_time')
           } 
         }
       });
@@ -93,6 +94,11 @@ Component({
                 success: function(res) {
                     wx.switchTab({
                       url: '/pages/Index/index',
+                      success: function(e) {
+                        var page = getCurrentPages().pop();
+                        if (page == undefined || page == null) return;
+                        page.onLoad();
+                      }
                     })
                   }
                 })

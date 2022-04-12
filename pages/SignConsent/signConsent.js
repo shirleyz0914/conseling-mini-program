@@ -56,6 +56,9 @@ Page({
       success: (res) => {
         if (res.statusCode === 200 && res.data.Code === 0) {
           const payloadData = wx.getStorageSync('payloadData');
+          var times = Date.now();
+          var begin_time = new Date(times).toLocaleString('chinese', {hour12: false}).replaceAll('/', '-');
+          wx.setStorageSync('begin_time', begin_time);
           wx.navigateTo({
             url: `../../TUI-CustomerService/pages/TUI-Chat/chat?conversationInfomation=${JSON.stringify(payloadData)}`,
           })
