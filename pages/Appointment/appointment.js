@@ -29,7 +29,7 @@ Page({
   },
   makeAppointment(event) {
     const payloadData = {
-      conversationID: `C2C${event.currentTarget.dataset.counselerUsername}`,
+      conversationID: `C2C${event.currentTarget.dataset.uname}`,
     };
     const coun_id = event.currentTarget.dataset.counid;
     wx.setStorageSync('payloadData', payloadData);
@@ -41,7 +41,7 @@ Page({
   },
   goWaitingList(event) {
     const payloadData = {
-      conversationID: `C2C${event.currentTarget.dataset.counselerUsername}`,
+      conversationID: `C2C${event.currentTarget.dataset.uname}`,
     };
     const coun_id = event.currentTarget.dataset.counid;
     wx.setStorageSync('payloadData', payloadData);
