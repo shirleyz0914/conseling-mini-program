@@ -222,6 +222,7 @@
   line-height: 50rpx;
   color: #333333 ;
   font-size: 28rpx;
+  width: 96rpx;
 }
 .consel-duration {
   margin-left: 36rpx;

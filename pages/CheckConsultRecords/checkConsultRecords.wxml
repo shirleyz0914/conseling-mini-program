@@ -10,17 +10,14 @@
     <view class="box">
       <view class="consultant-box" disabled='true' style="overflow-y:auto;overflow-x:scroll;" selectable="true">
         <!-- 咨询师列表 -->
-        <view class="consultant" wx:for="{{dataList}}" wx:key="i">
-          <checkbox-group bindchange="checkboxChange" data-id="{{item.id}}">
-            <checkbox value="{{item.id}}" style="float:left;" checked='{{item.checked}}'></checkbox>
-          </checkbox-group>
-          <text style="padding:1.5px; float:left">{{item.id}}</text>
-          <text style="padding:1.5px; float:right">{{item.date}}</text>
+        <view class="consultant" wx:for="{{recordList}}" wx:key="i" bindtap="goCheckDetails">
+          <text style="padding:1.5px; float:left">{{item.name}}</text>
+          <text style="padding:1.5px; float:right">{{item.time}}</text>
         </view>
       </view>
 
-      <view class='Button'>
-        <button class="sendBtn" bind:tap='send'>查看</button>
+      <view class="tips">
+        <text style="padding:1.5px; font-size: 28rpx">操作提示 ：单击咨询记录进行查看</text>
       </view>
 
     </view>

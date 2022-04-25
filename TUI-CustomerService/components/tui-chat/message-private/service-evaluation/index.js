@@ -45,20 +45,6 @@ Component({
    
 
     sendMessage() {
-      const coun_id = wx.getStorageSync('coun_id');
-      wx.request({
-        url: 'http://1.15.129.51:3000/wx-users/changeCounsellorStauts',
-        method: 'PUT',
-        data: {
-          "coun_id": coun_id,
-          "coun_status": "free"
-        },
-        success: (res) => {
-          if (res.statusCode === 200 && res.data.Code === 0) {
-            wx.removeStorageSync('coun_id');
-          } 
-        }
-      });
       this.triggerEvent('sendCustomMessage', {
         payload: {
           // data 字段作为表示，可以自定义
@@ -70,7 +56,8 @@ Component({
         },
       });
       this.handleClose();
-
+      
+      //从缓存找到数据
       const counID = wx.getStorageSync('coun_id');
       const userID = wx.getStorageSync('visitor_id');
       const {score} = this.data; //解构score
@@ -85,13 +72,19 @@ Component({
          success: (res) => {
            if(res.statusCode === 200){
              if(res.data.Code === 0){
-               
+              wx.removeStorageSync('coun_id');
+              wx.removeStorageSync('begin_time')
               wx.showModal({
                 title: '感谢您的评价！',
                 showCancel: false,
                 success: function(res) {
                     wx.switchTab({
                       url: '/pages/Index/index',
+                      success: function(e) {
+                        var page = getCurrentPages().pop();
+                        if (page == undefined || page == null) return;
+                        page.onLoad();
+                      }
                     })
                   }
                 })

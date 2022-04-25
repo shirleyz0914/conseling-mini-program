@@ -79,6 +79,13 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "聊天记录详情页",
+          "pathName": "pages/CheckRecordDetails/checkRecordDetails",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

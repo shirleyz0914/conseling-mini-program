@@ -3,7 +3,7 @@
   <view class="counter-warp">
     <view class="header-content">
       <view class="text">
-        <view class="text-header">导出咨询记录</view>
+        <view class="text-header">发送咨询记录</view>
       </view>
     </view>
 
@@ -14,8 +14,8 @@
           <checkbox-group bindchange="checkboxChange" data-id="{{item.id}}">
             <checkbox value="{{item.id}}" style="float:left;" checked='{{item.checked}}'></checkbox>
           </checkbox-group>
-          <text style="padding:1.5px; float:left">{{item.id}}</text>
-          <text style="padding:1.5px; float:right">{{item.date}}</text>
+          <text style="padding:1.5px; float:left">{{item.name}}</text>
+          <text style="padding:1.5px; float:right">{{item.time}}</text>
         </view>
       </view>
 
@@ -25,7 +25,7 @@
       </checkbox-group>
 
       <view class='Button'>
-        <button class="exportBtn" bind:tap='export'>导出</button>
+        <button class="exportBtn" bind:tap='export'>发送</button>
       </view>
 
     </view>

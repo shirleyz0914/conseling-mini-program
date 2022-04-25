@@ -45,22 +45,38 @@ Page({
     })
   },
   goCounseling() {
+    const visitor_id = wx.getStorageSync('visitor_id');
     const coun_id = wx.getStorageSync('coun_id');
+    // wx.request({
+    //   url: 'http://1.15.129.51:3000/wx-users/changeCounsellorStauts',
+    //   method: 'PUT',
+    //   data: {
+    //     "coun_id": coun_id,
+    //     "coun_status": "busy"
+    //   },
+    //   success: (res) => {
+    //     if (res.statusCode === 200 && res.data.Code === 0) {
+    const payloadData = wx.getStorageSync('payloadData');
+    var times = Date.now();
+    var begin_time = new Date(times).toLocaleString('chinese', {hour12: false}).replaceAll('/', '-');
     wx.request({
-      url: 'http://1.15.129.51:3000/wx-users/changeCounsellorStauts',
-      method: 'PUT',
+      url: 'http://1.15.129.51:3000/record',
+      method: 'POST',
       data: {
+        "visitor_id": visitor_id,
         "coun_id": coun_id,
-        "coun_status": "busy"
+        "begin_time": begin_time,
       },
       success: (res) => {
-        if (res.statusCode === 200 && res.data.Code === 0) {
-          const payloadData = wx.getStorageSync('payloadData');
-          wx.navigateTo({
-            url: `../../TUI-CustomerService/pages/TUI-Chat/chat?conversationInfomation=${JSON.stringify(payloadData)}`,
-          })
-        } 
+        console.log(res)
+        wx.setStorageSync('record_id', res.data.record_id);
       }
-    });
+    })
+    wx.navigateTo({
+      url: `../../TUI-CustomerService/pages/TUI-Chat/chat?conversationInfomation=${JSON.stringify(payloadData)}`,
+    })
+    //     } 
+    //   }
+    // });
   }
 })

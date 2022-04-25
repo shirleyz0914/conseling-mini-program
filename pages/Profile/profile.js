@@ -14,6 +14,19 @@ Page({
     contactName: '',
     contactPhone: '',
     userID: '',
+    items: [{value: 'Male', name: '男', checked: 'false'}, {value: 'Female', name: '女', checked: 'false'}],
+    gender: 'Other'
+  },
+  radioChange(e) {
+    const items = this.data.items;
+    for (let i = 0, len = items.length; i < len; ++i) {
+      items[i].checked = items[i].value === e.detail.value;
+    }
+    this.setData({
+      items,
+      gender: e.detail.value,
+      profileChanged: true
+    })
   },
   getVisitorInfo(){
     const user_name = wx.getStorageSync('token').userInfo.userID;
@@ -21,7 +34,7 @@ Page({
       url: 'http://1.15.129.51:3000/wx-users/getVisitorInfo',
       method: 'GET',
       data: {
-        "user_name": user_name,
+        user_name: user_name,
       },
       success: (res) => {
         if (res.statusCode === 200) {
@@ -30,10 +43,15 @@ Page({
               user_id,
               visitor_avatar,
               visitor_name,
+              visitor_gender,
               visitor_phone,
               emergency_name,
               emergency_phone
             } = res.data.visitorInfo;
+            const items = this.data.items;
+            for (let i = 0, len = items.length; i < len; ++i){
+              items[i].checked = items[i].value === visitor_gender
+            }
             this.setData({
               userID: user_id,
               userName: user_name,
@@ -42,6 +60,8 @@ Page({
               phoneNumber: visitor_phone || '',
               contactName: emergency_name || '',
               contactPhone: emergency_phone || '',
+              gender: visitor_gender || 'Other',
+              items
             })
           }
         }
@@ -91,6 +111,7 @@ Page({
         userSig: app.globalData.userInfo.userSig,
       }).then(() => {
         this.getVisitorInfo();
+        this.changeSelectedGender();
       })
         .catch(() => {
       });
@@ -102,13 +123,14 @@ Page({
   },
 
   confirmChange(){
-    const { userID, userName, avatarUrl, realName, phoneNumber, contactName, contactPhone } = this.data;
+    const { userID, userName, avatarUrl, realName, phoneNumber, contactName, contactPhone, gender } = this.data;
     wx.request({
       url: 'http://1.15.129.51:3000/wx-users/editInfo',
       method: 'PUT',
       data: {
         "user_id": userID,
         "user_name": userName,
+        "visitor_gender": gender,
         "visitor_name": realName,
         "visitor_phone": phoneNumber,
         "visitor_avatar": avatarUrl,
@@ -135,6 +157,18 @@ Page({
                 if (page == undefined || page == null) return;
                 page.onLoad();
               }
+            })
+          } else if (res.data.errCode === 11) {
+            wx.showModal({
+              title: '提示',
+              content: '请填写正确的手机号码。',
+              showCancel: false
+            })
+          } else if (res.data.errCode === 12) {
+            wx.showModal({
+              title: '提示',
+              content: '请填写真实姓名。',
+              showCancel: false
             })
           }
         }
