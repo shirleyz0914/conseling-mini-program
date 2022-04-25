@@ -9,7 +9,7 @@
   /*top: 0;*/
   flex-shrink: 0;
   width: 750rpx;
-  height: 176rpx;
+  height: 150rpx;
   background-color: #006EFF;
 }
 

@@ -37,6 +37,12 @@ Page({
           }
         }
       })
+  },
+
+  goCheckDetails(){
+    wx.navigateTo({
+      url: `../CheckRecordDetails/checkRecordDetails`,
+    });
   }
 
   
