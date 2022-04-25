@@ -1,0 +1,13 @@
+<view class="container">
+  <TUI-calling class="calling" id="tui-calling" config="{{config}}"  bind:sendMessage="sendMessage"></TUI-calling>
+  <view class="tui-chatroom-navigatorbar">
+    <image class="tui-chatroom-navigatorbar-back" bindtap="goBack" src="../../static/assets/ic_back_white.svg" />
+
+    <view class="conversation-title">{{conversationName}}</view>
+  </view>
+  
+  <view class="message-list" bindtap="triggerClose">
+    <TUI-message-list id="message-list" conversation="{{conversation}}" unreadCount="{{unreadCount}}" bind:changeMemberCount="changeMemberCount" bind:resendMessage="resendMessage"></TUI-message-list>
+  </view>
+
+</view>

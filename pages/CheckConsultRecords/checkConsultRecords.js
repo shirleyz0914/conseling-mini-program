@@ -2,7 +2,7 @@ const app = getApp()
 
 Page({
   data: {
-    dataList:[] //咨询记录列表
+    recordList:[] //咨询记录列表
   },
   onLoad() {
     this.getConsultRecords();
@@ -15,12 +15,11 @@ Page({
         data:{
           "user_name": user_name,
         },
-
         success: (res) => {
           if(res.statusCode === 200){
             if(res.data.code === 0){
               const consultList = res.data.consultList;
-              const consultHistory = this.data.dataList;
+              const consultHistory = this.data.recordList;
               for(var i=0; i<consultList.length; i++){
                 const{ coun_id, coun_name, begin_time} = consultList[i];
                 const std_time = new Date(begin_time);
@@ -32,11 +31,13 @@ Page({
                 consultHistory.push(consultRecord);
               }
               this.setData({
-                dataList : consultHistory,
+                recordList : consultHistory,
               })
             }
           }
         }
       })
   }
+
+  
 });
