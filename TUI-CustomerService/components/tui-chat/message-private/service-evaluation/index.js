@@ -45,9 +45,6 @@ Component({
    
 
     sendMessage() {
-      const coun_id = wx.getStorageSync('coun_id');
-      wx.removeStorageSync('coun_id');
-      wx.removeStorageSync('begin_time')
       // wx.request({
       //   url: 'http://1.15.129.51:3000/wx-users/changeCounsellorStauts',
       //   method: 'PUT',
@@ -89,7 +86,8 @@ Component({
          success: (res) => {
            if(res.statusCode === 200){
              if(res.data.Code === 0){
-               
+              wx.removeStorageSync('coun_id');
+              wx.removeStorageSync('begin_time')
               wx.showModal({
                 title: '感谢您的评价！',
                 showCancel: false,
