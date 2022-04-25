@@ -1,14 +1,10 @@
-import logger from '../../utils/logger';
-// eslint-disable-next-line no-undef
 const app = getApp();
-// eslint-disable-next-line no-undef
-Page({
 
-  /**
-   * 页面的初始数据
-   */
+Page({
   data: {
-    conversationName: 'XX 与 XX 的聊天记录',
+    conversationName: '聊天记录',
+    visitorName:'VV',
+    counName:'CC',
     conversation: {},
     messageList: [],
     conversationID: '',
@@ -20,14 +16,15 @@ Page({
       tim: null,
     },
   },
-
+ 
   goBack() {
     wx.navigateTo({
       url: `../CheckConsultRecords/checkConsultRecords`,
     })
   },
 
-  goSendRecords() {
+  /*
+  getMessageList() {
     const currentCounID = this.data.counID;
     let promise1 = wx.$TUIKit.getMessageList({
       conversationID: this.data.conversationID,
@@ -37,5 +34,6 @@ Page({
       var messages = imResponse.data.messageList; // 消息列表。
     });
   },
+  */
 
 })
