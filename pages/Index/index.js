@@ -60,6 +60,7 @@ Page({
   getConsultList() {
     const user_name = wx.getStorageSync('token').userInfo.userID;
     wx.request({
+      // mockUrl
       url: 'http://1.15.129.51:3000/wx-users/record/getConsultList',
       method: 'GET',
       data: {
@@ -71,7 +72,7 @@ Page({
             const consultList = res.data.consultList;
             const consultHistory = this.data.counselHistoryList;
             for (var i = 0; i < consultList.length; i++) {
-              const { coun_id, coun_name, coun_status, coun_avatar, begin_time, period, score } = consultList[i];
+              const { coun_id, uname, coun_name, coun_status, coun_avatar, begin_time, period, score } = consultList[i];
               const std_begin_time = new Date(begin_time);
               const t_h = Math.floor(period/60/60);
               const t_m = Math.floor((period - t_h * 60 * 60) / 60);
@@ -81,6 +82,7 @@ Page({
               const s = t_s < 10 ? `0${t_s}` : `${t_s}`;
               const consultRecord = {
                 id: coun_id,
+                uid: uname,
                 name: coun_name,
                 status: coun_status,
                 avatarUrl: coun_avatar || "https://sdk-web-1252463788.cos.ap-hongkong.myqcloud.com/component/TUIKit/assets/avatar_21.png",
@@ -118,7 +120,7 @@ Page({
   },
   goRecounsult(event){
     const payloadData = {
-      conversationID: `C2C${event.currentTarget.dataset.item.name}`,
+      conversationID: `C2C${event.currentTarget.dataset.item.uid}`,
     };
     const {id, status} = event.currentTarget.dataset.item;
     if (status === "offline" || status === undefined) {
