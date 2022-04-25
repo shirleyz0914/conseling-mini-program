@@ -45,6 +45,7 @@ Page({
     })
   },
   goCounseling() {
+    const visitor_id = wx.getStorageSync('visitor_id');
     const coun_id = wx.getStorageSync('coun_id');
     // wx.request({
     //   url: 'http://1.15.129.51:3000/wx-users/changeCounsellorStauts',
@@ -58,7 +59,19 @@ Page({
     const payloadData = wx.getStorageSync('payloadData');
     var times = Date.now();
     var begin_time = new Date(times).toLocaleString('chinese', {hour12: false}).replaceAll('/', '-');
-    wx.setStorageSync('begin_time', begin_time);
+    wx.request({
+      url: 'http://1.15.129.51:3000/record',
+      method: 'POST',
+      data: {
+        "visitor_id": visitor_id,
+        "coun_id": coun_id,
+        "begin_time": begin_time,
+      },
+      success: (res) => {
+        console.log(res)
+        wx.setStorageSync('record_id', res.data.record_id);
+      }
+    })
     wx.navigateTo({
       url: `../../TUI-CustomerService/pages/TUI-Chat/chat?conversationInfomation=${JSON.stringify(payloadData)}`,
     })
