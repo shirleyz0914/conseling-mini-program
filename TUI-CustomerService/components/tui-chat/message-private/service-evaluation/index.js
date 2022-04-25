@@ -45,7 +45,6 @@ Component({
    
 
     sendMessage() {
-    
       this.triggerEvent('sendCustomMessage', {
         payload: {
           // data 字段作为表示，可以自定义

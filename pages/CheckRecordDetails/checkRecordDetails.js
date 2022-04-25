@@ -21,10 +21,21 @@ Page({
     },
   },
 
-  goBack(){
+  goBack() {
     wx.navigateTo({
       url: `../CheckConsultRecords/checkConsultRecords`,
     })
+  },
+
+  goSendRecords() {
+    const currentCounID = this.data.counID;
+    let promise1 = wx.$TUIKit.getMessageList({
+      conversationID: this.data.conversationID,
+      count: 20
+    });
+    promise1.then(function (imResponse) {
+      var messages = imResponse.data.messageList; // 消息列表。
+    });
   },
 
 })
