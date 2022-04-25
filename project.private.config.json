@@ -85,10 +85,10 @@
           "name": "聊天记录详情页",
           "pathName": "pages/CheckRecordDetails/checkRecordDetails",
           "query": "",
-          "scene": null,
-          "launchMode": "default"
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }
-  },
+  }
 }
