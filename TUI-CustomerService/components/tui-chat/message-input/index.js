@@ -276,7 +276,6 @@ Component({
       const to = this.getToAccount();
       const text = flag ? msg : this.data.message;
       const record_id = wx.getStorageSync('record_id');
-      debugger
       const message = wx.$TUIKit.createTextMessage({
         to,
         conversationType: this.data.conversation.type,
