@@ -11,10 +11,10 @@
       <view class="consultant-box" disabled='true' style="overflow-y:auto;overflow-x:scroll;" selectable="true">
         <!-- 咨询师列表 -->
         <view class="consultant" wx:for="{{dataList}}" wx:key="i">
-          <checkbox-group bindchange="checkboxChange" data-id="{{item.id}}">
-            <checkbox value="{{item.id}}" style="float:left;" checked='{{item.checked}}'></checkbox>
+          <checkbox-group bindchange="checkboxChange" data-id="{{item.index}}">
+            <checkbox value="{{item.index}}" style="float:left;" checked='{{item.checked}}'></checkbox>
           </checkbox-group>
-          <text style="padding:1.5px; float:left">{{item.name}}</text>
+          <text style="padding:1.5px; float:left">{{item.nick}}</text>
           <text style="padding:1.5px; float:right">{{item.time}}</text>
         </view>
       </view>

@@ -24,8 +24,8 @@
     "compileHotReLoad": true,
     "lazyloadPlaceholderEnable": false,
     "useMultiFrameRuntime": true,
-    "useApiHook": false,
-    "useApiHostProcess": false,
+    "useApiHook": true,
+    "useApiHostProcess": true,
     "babelSetting": {
       "ignore": [],
       "disablePlugins": [],
@@ -47,9 +47,9 @@
   "libVersion": "2.23.2",
   "appid": "wx878a25bd0b59aa8c",
   "projectname": "conseling-mini-program",
-  "condition": {},
   "editorSetting": {
     "tabIndent": "insertSpaces",
     "tabSize": 2
-  }
+  },
+  "condition": {}
 }

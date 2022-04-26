@@ -59,7 +59,7 @@ Page({
       }
     }, 1000)
   },
-  goEvaluate(){
+  goEvaluate() {
     // var times = Date.now();
     // var end_time = new Date(times).toLocaleString('chinese', {hour12: false}).replaceAll('/', '-');
     // const visitor_id = wx.getStorageSync('visitor_id');
@@ -79,8 +79,9 @@ Page({
     // })
     this.selectComponent('#message-input').handleServiceEvaluation();
   },
-  counID: '',
+
   goSendRecords() {
+    /*
     const currentCounID = this.data.counID;
     let promise1 = wx.$TUIKit.getMessageList({
       conversationID: this.data.conversationID,
@@ -119,12 +120,13 @@ Page({
         console.warn('sendMessage error:', imError);
       });
     });
+    */
+    wx.setStorageSync('currentCounID', this.data.counID);
 
-    /*
     wx.navigateTo({
       url: `../../../pages/ExportConsultRecords/exportConsultRecords`,
     })
-    */
+
   },
 
   /**

@@ -1,13 +1,14 @@
 <view class="container">
-  <TUI-calling class="calling" id="tui-calling" config="{{config}}"  bind:sendMessage="sendMessage"></TUI-calling>
+  <TUI-calling class="calling" id="tui-calling" config="{{config}}" bind:sendMessage="sendMessage"></TUI-calling>
   <view class="tui-chatroom-navigatorbar">
-    <image class="tui-chatroom-navigatorbar-back" bindtap="goBack"/>
+    <image class="tui-chatroom-navigatorbar-back" bindtap="goBack" />
 
     <view class="conversation-title">{{visitorName}} 与 {{counName}} 的聊天记录</view>
   </view>
-  
-  <view class="message-list" bindtap="triggerClose">
-    <TUI-message-list id="message-list" conversation="{{conversation}}" unreadCount="{{unreadCount}}" bind:changeMemberCount="changeMemberCount" bind:resendMessage="resendMessage"></TUI-message-list>
+
+  <view class="message-list">
+    <view class="tui-message" wx:for="{{messageList}}" wx:key="index">{{item}}
+    </view>
   </view>
 
 </view>
