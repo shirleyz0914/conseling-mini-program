@@ -60,6 +60,7 @@ Component({
       //从缓存找到数据
       const counID = wx.getStorageSync('coun_id');
       const userID = wx.getStorageSync('visitor_id');
+      const record_id = wx.getStorageSync('record_id');
       const {score} = this.data; //解构score
       wx.request({
         url: 'http://1.15.129.51:3000/wx-users/addFeedbackScore',
@@ -68,6 +69,7 @@ Component({
           "visitor_id": userID,
           "coun_id": counID,
           "score": score,
+          "record_id": record_id
       },
          success: (res) => {
            if(res.statusCode === 200){
