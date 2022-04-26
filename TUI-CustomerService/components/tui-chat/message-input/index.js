@@ -60,7 +60,7 @@ Component({
               payload: {
                 file: res,
               },
-              cloudCustomData: record_id,
+              cloudCustomData: `${record_id}`,
             });
             this.$sendTIMMessage(message);
           }
@@ -187,7 +187,7 @@ Component({
               payload: {
                 file: res,
               },
-              cloudCustomData: record_id,
+              cloudCustomData: `${record_id}`,
               onProgress: (percent) => {
                 message.percent = percent;
               },
@@ -217,7 +217,7 @@ Component({
               payload: {
                 file: res,
               },
-              cloudCustomData: record_id,
+              cloudCustomData: `${record_id}`,
               onProgress: (percent) => {
                 message.percent = percent;
               },
@@ -276,13 +276,14 @@ Component({
       const to = this.getToAccount();
       const text = flag ? msg : this.data.message;
       const record_id = wx.getStorageSync('record_id');
+      debugger
       const message = wx.$TUIKit.createTextMessage({
         to,
         conversationType: this.data.conversation.type,
         payload: {
           text,
         },
-        cloudCustomData: record_id,
+        cloudCustomData: `${record_id}`,
       });
       this.setData({
         message: '',
@@ -322,7 +323,7 @@ Component({
         to: this.getToAccount(),
         conversationType: this.data.conversation.type,
         payload: e.detail.payload,
-        cloudCustomData: record_id,
+        cloudCustomData: `${record_id}`,
       });
       this.$sendTIMMessage(message);
       this.setData({

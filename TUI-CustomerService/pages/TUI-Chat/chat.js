@@ -98,7 +98,7 @@ Page({
           abstractList: ['allen: 666', 'iris: [图片]', 'linda: [文件]'],
           compatibleText: '请升级IMSDK到v2.10.1或更高版本查看此消息'
         },
-        cloudCustomData: record_id,
+        cloudCustomData: `${record_id}`,
       });
 
       let promise2 = wx.$TUIKit.sendMessage(mergerMessage);
