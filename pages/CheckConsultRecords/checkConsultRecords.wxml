@@ -10,9 +10,11 @@
     <view class="box">
       <view class="consultant-box" disabled='true' style="overflow-y:auto;overflow-x:scroll;" selectable="true">
         <!-- 咨询师列表 -->
-        <view class="consultant" wx:for="{{recordList}}" wx:key="i" bindtap="goCheckDetails">
-          <text style="padding:1.5px; float:left">{{item.name}}</text>
-          <text style="padding:1.5px; float:right">{{item.time}}</text>
+        <view class="consultant" wx:for="{{recordList}}" wx:for-index="bindex" wx:key="i">
+          <view class="consultant-one" bindtap="goCheckDetails" data-bindex='{{bindex}}'>
+            <text style="padding:1.5px; float:left">{{item.nick}}</text>
+            <text style="padding:1.5px; float:right">{{item.time}}</text>
+          </view>
         </view>
       </view>
 

@@ -2,38 +2,42 @@ const app = getApp();
 
 Page({
   data: {
-    conversationName: '聊天记录',
-    visitorName:'VV',
-    counName:'CC',
+    visitorName: 'VV',
+    counName: 'CC',
     conversation: {},
     messageList: [],
     conversationID: '',
-    config: {
-      sdkAppID: '',
-      userID: '',
-      userSig: '',
-      type: 1,
-      tim: null,
-    },
   },
- 
+
   goBack() {
     wx.navigateTo({
       url: `../CheckConsultRecords/checkConsultRecords`,
     })
   },
 
-  /*
-  getMessageList() {
-    const currentCounID = this.data.counID;
-    let promise1 = wx.$TUIKit.getMessageList({
+  onLoad: function (option) {
+    const userID = app.globalData.userInfo.userID;
+    const record = wx.getStorageSync('currentRecord');
+    this.setData({
+      visitorName: userID,
+      counName: record.nick,
+      conversationID: 'C2C' + record.name,
+    });
+
+    var that = this;
+    let promise = wx.$TUIKit.getMessageList({
       conversationID: this.data.conversationID,
       count: 20
     });
-    promise1.then(function (imResponse) {
-      var messages = imResponse.data.messageList; // 消息列表。
+    promise.then(function (imResponse) {
+      //console.log(imResponse);
+       const messages = imResponse.data.messageList; // 消息列表
+       that.setData({
+        messageList: messages
+      });
     });
-  },
-  */
 
+  },
+
+  
 })
