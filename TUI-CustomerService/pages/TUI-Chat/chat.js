@@ -88,7 +88,7 @@ Page({
     });
     promise1.then(function (imResponse) {
       var messages = imResponse.data.messageList; // 消息列表。
-  
+      const record_id = wx.getStorageSync('record_id');
       let mergerMessage = wx.$TUIKit.createMergerMessage({
         to: currentCounID, //咨询师的userID
         conversationType: 'C2C',
@@ -98,6 +98,7 @@ Page({
           abstractList: ['allen: 666', 'iris: [图片]', 'linda: [文件]'],
           compatibleText: '请升级IMSDK到v2.10.1或更高版本查看此消息'
         },
+        cloudCustomData: `${record_id}`,
       });
 
       let promise2 = wx.$TUIKit.sendMessage(mergerMessage);

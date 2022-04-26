@@ -53,12 +53,14 @@ Component({
             });
           } else {
             // res.tempFilePath 存储录音文件的临时路径
+            const record_id = wx.getStorageSync('record_id');
             const message = wx.$TUIKit.createAudioMessage({
               to: this.getToAccount(),
               conversationType: this.data.conversation.type,
               payload: {
                 file: res,
               },
+              cloudCustomData: `${record_id}`,
             });
             this.$sendTIMMessage(message);
           }
@@ -178,12 +180,14 @@ Component({
         count: 1,
         success: (res) => {
           if (res) {
+            const record_id = wx.getStorageSync('record_id');
             const message = wx.$TUIKit.createImageMessage({
               to: this.getToAccount(),
               conversationType: this.data.conversation.type,
               payload: {
                 file: res,
               },
+              cloudCustomData: `${record_id}`,
               onProgress: (percent) => {
                 message.percent = percent;
               },
@@ -206,12 +210,14 @@ Component({
         camera: 'back', // 后置摄像头
         success: (res) => {
           if (res) {
+            const record_id = wx.getStorageSync('record_id');
             const message = wx.$TUIKit.createVideoMessage({
               to: this.getToAccount(),
               conversationType: this.data.conversation.type,
               payload: {
                 file: res,
               },
+              cloudCustomData: `${record_id}`,
               onProgress: (percent) => {
                 message.percent = percent;
               },
@@ -269,12 +275,15 @@ Component({
     sendTextMessage(msg, flag) {
       const to = this.getToAccount();
       const text = flag ? msg : this.data.message;
+      const record_id = wx.getStorageSync('record_id');
+      debugger
       const message = wx.$TUIKit.createTextMessage({
         to,
         conversationType: this.data.conversation.type,
         payload: {
           text,
         },
+        cloudCustomData: `${record_id}`,
       });
       this.setData({
         message: '',
@@ -309,10 +318,12 @@ Component({
     },
 
     $handleSendCustomMessage(e) {
+      const record_id = wx.getStorageSync('record_id');
       const message = wx.$TUIKit.createCustomMessage({
         to: this.getToAccount(),
         conversationType: this.data.conversation.type,
         payload: e.detail.payload,
+        cloudCustomData: `${record_id}`,
       });
       this.$sendTIMMessage(message);
       this.setData({
