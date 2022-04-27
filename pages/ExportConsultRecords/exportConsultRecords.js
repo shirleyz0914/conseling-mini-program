@@ -112,7 +112,7 @@ Page({
         var messages = imResponse.data.messageList; // 消息列表
         var counName = that.data.dataList[index].nick;
         var recordTitle = counName + '与' + visitorName + '的聊天记录';
-
+        const record_id = wx.getStorageSync('record_id');
         let mergerMessage = wx.$TUIKit.createMergerMessage({
           to: currentCounID, //咨询师的userID
           conversationType: 'C2C',
@@ -122,15 +122,16 @@ Page({
             abstractList: ['allen: 666', 'iris: [图片]', 'linda: [文件]'],
             compatibleText: '请升级IMSDK到v2.10.1或更高版本查看此消息'
           },
+          cloudCustomData: `${record_id}`,
         });
         wx.$TUIKit.sendMessage(mergerMessage);
-
         let successMessage = wx.$TUIKit.createTextMessage({
           to: currentCounID,
           conversationType: 'C2C',
           payload: {
             text: recordTitle,
           },
+          cloudCustomData: `${record_id}`,
         });
         wx.$TUIKit.sendMessage(successMessage);
         // 将自己发送的消息写进消息列表里面
