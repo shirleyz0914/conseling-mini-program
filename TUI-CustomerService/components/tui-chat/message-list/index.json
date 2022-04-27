@@ -10,6 +10,7 @@
     "TUI-TipMessage": "../message-elements/tip-message/index",
     "TUI-SystemMessage": "../message-elements/system-message/index",
     "TUI-FaceMessage": "../message-elements/face-message/index",
-    "TUI-FileMessage": "../message-elements/file-message/index"
+    "TUI-FileMessage": "../message-elements/file-message/index",
+    "TUI-MergerMessage": "../message-elements/merger-message/index"
   }
 }

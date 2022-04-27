@@ -1,0 +1,8 @@
+<view class="custom-message {{isMine?'my-merger':''}}" >
+  <view class="merger-content">
+    <view class="merger-content-title">{{renderDom[0].title}}</view>
+    <view class="merger-content-description">{{renderDom[0].abstractList[0]}}</view>
+    <view class="merger-content-description">{{renderDom[0].abstractList[1]}}</view>
+    <view class="merger-content-following">等对话内容</view>
+  </view>
+</view>
