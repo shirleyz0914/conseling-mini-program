@@ -8,7 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    conversationName: 'XXX',
+    conversationName: '',
     counID: '',
     conversation: {},
     messageList: [],
@@ -129,11 +129,23 @@ Page({
 
   },
 
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
     this.consultTime();
+
+    /*
+    //定期检查storage中的successMsg
+    var successMsg = wx.getStorageSync('successMsg');
+    setInterval(() => {
+      if (successMsg.conversationID != '') {
+        this.sendRelaySuccessMsg(successMsg);
+        wx.removeStorageSync('successMsg')
+      }
+    }, 2000)
+    */
 
     const {
       config
@@ -174,6 +186,16 @@ Page({
       });
     });
   },
+
+  sendRelaySuccessMsg(msg) {
+    // 将自己发送的消息写进消息列表里面
+    var successMsg = wx.getStorageSync('successMsg');
+    this.selectComponent('#message-list').updateMessageList(msg);
+  },
+
+
+
+
   /**
    * 生命周期函数--监听页面卸载
    */

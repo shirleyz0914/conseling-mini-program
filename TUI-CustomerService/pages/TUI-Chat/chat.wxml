@@ -8,7 +8,9 @@
         <image class="counsultant-avatar" src="https://sdk-web-1252463788.cos.ap-hongkong.myqcloud.com/component/TUIKit/assets/avatar_21.png" />
       </view>
       <view class="counsultant-info-middle">
-        <view class="counsultant-info-text">{{conversationName}}</view>
+        <view class="counsultant-info-text" wx:if="{{conversationName!=''}}">{{conversationName}}</view>
+        <view class="counsultant-info-text" wx:else>咨询师</view>
+
         <view class="counsultant-info-text">正在咨询中</view>
         <view class="counsultant-info-text">{{h}}:{{m}}:{{s}}</view>
       </view>

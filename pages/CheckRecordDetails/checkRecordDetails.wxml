@@ -7,7 +7,63 @@
   </view>
 
   <view class="message-list">
-    <view class="tui-message" wx:for="{{messageList}}" wx:key="index">{{item}}
+    <view class="message-body-span" wx:for="{{messageList}}" wx:key="index">
+      <view class="message-show" wx:if="{{item.type === 'TIMTextElem'}}">
+        <view class="message-title">
+          <view>{{item.nick}} :</view>
+          <view>{{item.time}}</view>
+        </view>
+        <view>-------------------------------------------</view>
+        <view class="message-body-span-text">{{item.payload.text}}</view>
+      </view>
+
+      <view class="message-show" wx:if="{{item.type === 'TIMCustomElem'}}">
+        <view class="message-title">
+          <view>{{item.nick}} :</view>
+          <view>{{item.time}}</view>
+        </view>
+        <view>-------------------------------------------</view>
+        <view class="message-body-span-text">[ 评价消息 ]</view>
+      </view>
+
+      <view class="message-show" wx:if="{{item.type === 'TIMRelayElem'}}">
+        <view class="message-title">
+          <view>{{item.nick}} :</view>
+          <view>{{item.time}}</view>
+        </view>
+        <view>-------------------------------------------</view>
+        <view class="message-body-span-text">[ {{item.payload.title}} ]</view>
+      </view>
+
+      <view class="message-show" wx:if="{{item.type === 'TIMImageElem'}}">
+        <view class="message-title">
+          <view>{{item.nick}} :</view>
+          <view>{{item.time}}</view>
+        </view>
+        <view>-------------------------------------------</view>
+        <view class="message-body-span-text">[ 图片 ]</view>
+      </view>
+
+      <view class="message-show" wx:if="{{item.type === 'TIMVideoFileElem'}}">
+        <view class="message-title">
+          <view>{{item.nick}} :</view>
+          <view>{{item.time}}</view>
+        </view>
+        <view>-------------------------------------------</view>
+        <view class="message-body-span-text">[ 视频 ]</view>
+      </view>
+
+      <view class="message-show" wx:if="{{item.type === 'TIMSoundElem'}}">
+        <view class="message-title">
+          <view>{{item.nick}} :</view>
+          <view>{{item.time}}</view>
+        </view>
+        <view>-------------------------------------------</view>
+        <view class="message-body-span-text">[ 语音 ]</view>
+      </view>
+
+
+
     </view>
   </view>
 
