@@ -24,6 +24,7 @@ Page({
             const consultHistory = this.data.recordList;
             for (var i = 0; i < consultList.length; i++) {
               const {
+                record_id,
                 coun_id,
                 uname,
                 coun_name,
@@ -32,6 +33,7 @@ Page({
 
               const std_time = new Date(begin_time);
               const consultRecord = {
+                recordID: record_id,
                 id: coun_id,
                 name: uname,
                 nick: coun_name,
