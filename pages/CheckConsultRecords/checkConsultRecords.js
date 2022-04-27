@@ -5,7 +5,7 @@ Page({
     recordList: [], //咨询记录列表
     currentRecord: {}, //id, name, nick, time
   },
-  onLoad() {
+  onShow() {
       this.getConsultRecords();
   },
   
