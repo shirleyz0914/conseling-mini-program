@@ -112,6 +112,11 @@ Page({
         var messages = imResponse.data.messageList; // 消息列表
         var counName = that.data.dataList[index].nick;
         var recordTitle = counName + ' 与 ' + visitorName + ' 的聊天记录';
+        var abstract1 = messages[0].nick + ': ' + messages[0].type;
+        var abstract2 = messages[1].nick + ': ' + messages[1].type;
+        //console.log(abstract1);
+        //console.log(abstract2);
+
         const record_id = wx.getStorageSync('record_id');
         let mergerMessage = wx.$TUIKit.createMergerMessage({
           to: currentCounID, //咨询师的userID
@@ -119,12 +124,13 @@ Page({
           payload: {
             messageList: messages,
             title: recordTitle,
-            abstractList: [],
+            abstractList: [abstract1, abstract2],
             compatibleText: '请升级IMSDK到v2.10.1或更高版本查看此消息'
           },
           cloudCustomData: `${record_id}`,
         });
         wx.$TUIKit.sendMessage(mergerMessage);
+        
         let successMessage = wx.$TUIKit.createTextMessage({
           to: currentCounID,
           conversationType: 'C2C',
@@ -134,9 +140,6 @@ Page({
           cloudCustomData: `${record_id}`,
         });
         wx.$TUIKit.sendMessage(successMessage);
-        
-        //消息不能同步显示
-        wx.setStorageSync('successMsg', successMessage);
         
       })
     }
