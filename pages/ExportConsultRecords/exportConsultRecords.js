@@ -147,6 +147,15 @@ Page({
       success(res) {
         if (res.confirm) {
           console.log('转发记录完成')
+          var payloadData = wx.getStorageSync('payloadData');
+          wx.navigateTo({
+            url: `../../TUI-CustomerService/pages/TUI-Chat/chat?conversationInfomation=${JSON.stringify(payloadData)}`,
+            success: function (e) {
+              var page = getCurrentPages().pop();
+              if (page == undefined || page == null) return;
+              page.onLoad();
+            }
+          })
         }
       }
     })
