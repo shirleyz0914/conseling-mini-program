@@ -97,51 +97,40 @@ Page({
     const currentCounID = wx.getStorageSync('currentCounID');
     const visitorName = wx.getStorageSync('token').userInfo.userID;
     //console.log("当前选中：");
-    for (var i = 0; i < this.data.checkedIds.length; ++i) {
-      var index = this.data.checkedIds[i];
-      var curCounID = this.data.dataList[index].name;
-      var curConversationID = 'C2C' + curCounID;
-
-      //bug
+    for (let i = 0; i < this.data.checkedIds.length; ++i) {
       var that = this;
-      let promise = wx.$TUIKit.getMessageList({ //获取选中的record-聊天记录
-        conversationID: curConversationID,
-        count: 15 
-      });
-      promise.then(function (imResponse) {
-        var messages = imResponse.data.messageList; // 消息列表
-        var counName = that.data.dataList[index].nick;
-        var recordTitle = counName + ' 与 ' + visitorName + ' 的聊天记录';
-        var abstract1 = messages[0].nick + ': ' + messages[0].type;
-        var abstract2 = messages[1].nick + ': ' + messages[1].type;
-        //console.log(abstract1);
-        //console.log(abstract2);
-
-        const record_id = wx.getStorageSync('record_id');
-        let mergerMessage = wx.$TUIKit.createMergerMessage({
-          to: currentCounID, //咨询师的userID
-          conversationType: 'C2C',
-          payload: {
-            messageList: messages,
-            title: recordTitle,
-            abstractList: [abstract1, abstract2],
-            compatibleText: '请升级IMSDK到v2.10.1或更高版本查看此消息'
-          },
-          cloudCustomData: `${record_id}`,
+      (function() {
+        var index = that.data.checkedIds[i];
+        var curCounID = that.data.dataList[index].name;
+        var curConversationID = 'C2C' + curCounID;
+        //bug
+        let promise = wx.$TUIKit.getMessageList({ //获取选中的record-聊天记录
+          conversationID: curConversationID,
+          count: 15 
         });
-        wx.$TUIKit.sendMessage(mergerMessage);
-        
-        let successMessage = wx.$TUIKit.createTextMessage({
-          to: currentCounID,
-          conversationType: 'C2C',
-          payload: {
-            text: '系统提示：' + recordTitle + '已发送！',
-          },
-          cloudCustomData: `${record_id}`,
-        });
-        wx.$TUIKit.sendMessage(successMessage);
-        
-      })
+        promise.then(function (imResponse) {
+          var messages = imResponse.data.messageList; // 消息列表
+          var counName = that.data.dataList[index].nick;
+          var recordTitle = counName + ' 与 ' + visitorName + ' 的聊天记录';
+          var abstract1 = messages[0].nick + ': ' + messages[0].type;
+          var abstract2 = messages[1].nick + ': ' + messages[1].type;
+          //console.log(abstract1);
+          //console.log(abstract2);
+          const record_id = wx.getStorageSync('record_id');
+          let mergerMessage = wx.$TUIKit.createMergerMessage({
+            to: currentCounID, //咨询师的userID
+            conversationType: 'C2C',
+            payload: {
+              messageList: messages,
+              title: recordTitle,
+              abstractList: [abstract1, abstract2],
+              compatibleText: '请升级IMSDK到v2.10.1或更高版本查看此消息'
+            },
+            cloudCustomData: `${record_id}`,
+          });
+          wx.$TUIKit.sendMessage(mergerMessage);
+        })
+      })();
     }
 
     wx.showModal({
@@ -151,7 +140,7 @@ Page({
         if (res.confirm) {
           console.log('转发记录完成')
           var payloadData = wx.getStorageSync('payloadData');
-          wx.navigateTo({
+          wx.redirectTo({
             url: `../../TUI-CustomerService/pages/TUI-Chat/chat?conversationInfomation=${JSON.stringify(payloadData)}`,
             success: function (e) {
               var page = getCurrentPages().pop();
