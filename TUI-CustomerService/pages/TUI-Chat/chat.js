@@ -77,6 +77,7 @@ Page({
     //     "end_time": end_time
     //   }
     // })
+    wx.removeStorageSync('currentCounID');
     this.selectComponent('#message-input').handleServiceEvaluation();
   },
 
@@ -136,17 +137,6 @@ Page({
   onLoad(options) {
     this.consultTime();
 
-    /*
-    //定期检查storage中的successMsg
-    var successMsg = wx.getStorageSync('successMsg');
-    setInterval(() => {
-      if (successMsg.conversationID != '') {
-        this.sendRelaySuccessMsg(successMsg);
-        wx.removeStorageSync('successMsg')
-      }
-    }, 2000)
-    */
-
     const {
       config
     } = this.data;
@@ -186,14 +176,6 @@ Page({
       });
     });
   },
-
-  sendRelaySuccessMsg(msg) {
-    // 将自己发送的消息写进消息列表里面
-    var successMsg = wx.getStorageSync('successMsg');
-    this.selectComponent('#message-list').updateMessageList(msg);
-  },
-
-
 
 
   /**
