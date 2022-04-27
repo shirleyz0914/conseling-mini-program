@@ -6,8 +6,9 @@ Page({
     currentRecord: {}, //id, name, nick, time
   },
   onLoad() {
-    this.getConsultRecords()
+      this.getConsultRecords();
   },
+  
   getConsultRecords() {
     const user_name = wx.getStorageSync('token').userInfo.userID;
     wx.request({
@@ -26,14 +27,17 @@ Page({
                 coun_id,
                 uname,
                 coun_name,
-                begin_time
+                begin_time,
               } = consultList[i];
+
               const std_time = new Date(begin_time);
               const consultRecord = {
                 id: coun_id,
                 name: uname,
                 nick: coun_name,
-                time: std_time.toLocaleDateString(),
+                time: std_time.toLocaleString('chinese', {
+                  hour12: false
+                }),
               };
               consultHistory.push(consultRecord);
             }
@@ -60,6 +64,7 @@ Page({
     wx.navigateTo({
       url: `../CheckRecordDetails/checkRecordDetails`,
     });
+
   }
 
 

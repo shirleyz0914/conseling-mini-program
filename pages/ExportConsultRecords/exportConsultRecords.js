@@ -79,7 +79,7 @@ Page({
                 id: coun_id,
                 name: uname,
                 nick: coun_name,
-                time: std_time.toLocaleDateString(),
+                time: std_time.toLocaleString('chinese', {hour12: false}),
                 checked: false,
               };
               consultHistory.push(consultRecord);
@@ -106,12 +106,12 @@ Page({
       var that = this;
       let promise = wx.$TUIKit.getMessageList({ //获取选中的record-聊天记录
         conversationID: curConversationID,
-        count: 20 //当前只获取20条
+        count: 15 
       });
       promise.then(function (imResponse) {
         var messages = imResponse.data.messageList; // 消息列表
         var counName = that.data.dataList[index].nick;
-        var recordTitle = counName + '与' + visitorName + '的聊天记录';
+        var recordTitle = counName + ' 与 ' + visitorName + ' 的聊天记录';
         const record_id = wx.getStorageSync('record_id');
         let mergerMessage = wx.$TUIKit.createMergerMessage({
           to: currentCounID, //咨询师的userID
@@ -119,7 +119,7 @@ Page({
           payload: {
             messageList: messages,
             title: recordTitle,
-            abstractList: ['allen: 666', 'iris: [图片]', 'linda: [文件]'],
+            abstractList: [],
             compatibleText: '请升级IMSDK到v2.10.1或更高版本查看此消息'
           },
           cloudCustomData: `${record_id}`,
@@ -129,13 +129,15 @@ Page({
           to: currentCounID,
           conversationType: 'C2C',
           payload: {
-            text: recordTitle,
+            text: '系统提示：' + recordTitle + '已发送！',
           },
           cloudCustomData: `${record_id}`,
         });
         wx.$TUIKit.sendMessage(successMessage);
-        // 将自己发送的消息写进消息列表里面
-        this.selectComponent('#message-list').updateMessageList(successMessage);
+        
+        //消息不能同步显示
+        wx.setStorageSync('successMsg', successMessage);
+        
       })
     }
 
