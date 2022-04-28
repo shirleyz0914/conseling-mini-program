@@ -32,10 +32,10 @@
         <input class="input" type="number" maxlength="11" placeholder="请输入紧急联系人手机号码" bindinput='bindContactInput' placeholder-style="font-size:14px;color:#BBBBBB;" value='{{contactPhone}}'/>
       </view>
     </view>
-    <view class="reset-password">
+    <!-- <view class="reset-password">
       <label class="reset-password-text">修改登录密码</label>
       <image class="detail-icon" src="../../static/assets/detail.svg" bindtap="goResetPwd"/>
-    </view>
+    </view> -->
     <view class="confirm-change">
       <button class="confirmBtn" disabled="{{!profileChanged}}" bindtap='confirmChange'>确认修改</button> 
     </view>

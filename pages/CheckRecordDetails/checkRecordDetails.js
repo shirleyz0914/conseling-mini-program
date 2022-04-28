@@ -7,6 +7,7 @@ Page({
     conversationID: '',
     isCompleted: false, // 当前会话消息是否已经请求完毕
     nextReqMessageID: '', // 下一条消息标志
+    userID: null,
   },
 
   goBack() {
@@ -21,7 +22,12 @@ Page({
   },
 
   onLoad: function (option) {
+    this.getUserID();
     this.getMessageList();
+  },
+  getUserID() {
+    const userID = wx.getStorageSync('token').userInfo.userID;
+    this.setData({userID});
   },
 
   // 获取消息列表
@@ -35,12 +41,19 @@ Page({
         "record_id": record_id,
       },
       success: (res) => {
+        var validMessageList = [];
+        for (var i = 0; i < res.data.length; ++i) {
+          if (res.data[i].from_user === this.data.userID || res.data[i].to_user === this.data.userID) {
+            validMessageList.push(res.data[i])
+          }
+        }
         this.setData({
-          messageList: res.data,
+          messageList: validMessageList,
           counName: coun_name
         })
       }
     })
   },
+
 
 })
