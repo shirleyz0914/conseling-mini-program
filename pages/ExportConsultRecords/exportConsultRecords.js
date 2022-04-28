@@ -79,7 +79,9 @@ Page({
                 id: coun_id,
                 name: uname,
                 nick: coun_name,
-                time: std_time.toLocaleString('chinese', {hour12: false}),
+                time: std_time.toLocaleString('chinese', {
+                  hour12: false
+                }),
                 checked: false,
               };
               consultHistory.push(consultRecord);
@@ -99,21 +101,65 @@ Page({
     //console.log("当前选中：");
     for (let i = 0; i < this.data.checkedIds.length; ++i) {
       var that = this;
-      (function() {
+      (function () {
         var index = that.data.checkedIds[i];
         var curCounID = that.data.dataList[index].name;
         var curConversationID = 'C2C' + curCounID;
         //bug
         let promise = wx.$TUIKit.getMessageList({ //获取选中的record-聊天记录
           conversationID: curConversationID,
-          count: 15 
+          count: 15
         });
         promise.then(function (imResponse) {
           var messages = imResponse.data.messageList; // 消息列表
           var counName = that.data.dataList[index].nick;
           var recordTitle = counName + ' 与 ' + visitorName + ' 的聊天记录';
-          var abstract1 = messages[0].nick + ': ' + messages[0].type;
-          var abstract2 = messages[1].nick + ': ' + messages[1].type;
+
+          var type0;
+          switch (messages[0].type) {
+            case "TIMTextElem":
+              type0 = "[文本]";
+              break;
+            case "TIMImageElem":
+              type0 = "[图片]";
+              break;
+            case "TIMSoundElem":
+              type0 = "[语音]";
+              break;
+            case "TIMCustomElem":
+              type0 = "[评价消息]";
+              break;
+            case "TIMRelayElem":
+              type0 = "[聊天记录]";
+              break;
+            default:
+              type0 = "[消息]";
+          }
+          var abstract0 = messages[0].nick + ': ' + type0;
+
+          var type1;
+          switch (messages[1].type) {
+            case "TIMTextElem":
+              type1 = "[文本]";
+              break;
+            case "TIMImageElem":
+              type1 = "[图片]";
+              break;
+            case "TIMSoundElem":
+              type1 = "[语音]";
+              break;
+            case "TIMCustomElem":
+              type1 = "[评价消息]";
+              break;
+            case "TIMRelayElem":
+              type1 = "[聊天记录]";
+              break;
+            default:
+              type1 = "[消息]";
+          }
+          var abstract1 = messages[1].nick + ': ' + type1;
+
+
           //console.log(abstract1);
           //console.log(abstract2);
           const record_id = wx.getStorageSync('record_id');
@@ -123,7 +169,7 @@ Page({
             payload: {
               messageList: messages,
               title: recordTitle,
-              abstractList: [abstract1, abstract2],
+              abstractList: [abstract0, abstract1],
               compatibleText: '请升级IMSDK到v2.10.1或更高版本查看此消息'
             },
             cloudCustomData: `${record_id}`,
