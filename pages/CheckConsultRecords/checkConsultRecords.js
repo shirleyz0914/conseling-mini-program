@@ -21,7 +21,7 @@ Page({
         if (res.statusCode === 200) {
           if (res.data.code === 0) {
             const consultList = res.data.consultList;
-            const consultHistory = this.data.recordList;
+            const consultHistory = [];
             for (var i = 0; i < consultList.length; i++) {
               const {
                 record_id,
