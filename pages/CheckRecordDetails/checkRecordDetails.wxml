@@ -1,7 +1,6 @@
 <view class="container">
   <TUI-calling class="calling" id="tui-calling" config="{{config}}" bind:sendMessage="sendMessage"></TUI-calling>
   <view class="tui-chatroom-navigatorbar">
-    <image class="tui-chatroom-navigatorbar-back" bindtap="goBack" />
 
     <view class="conversation-title">与 {{counName}} 的聊天记录</view>
   </view>

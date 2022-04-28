@@ -10,8 +10,13 @@ Page({
   },
 
   goBack() {
-    wx.navigateTo({
-      url: `../CheckConsultRecords/checkConsultRecords`,
+    wx.switchTab({
+      url: '../CheckConsultRecords/checkConsultRecords',
+      success: function (e) {
+        var page = getCurrentPages().pop();
+        if (page == undefined || page == null) return;
+        page.onLoad();
+      }
     })
   },
 
